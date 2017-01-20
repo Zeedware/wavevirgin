@@ -32,4 +32,8 @@ public struct Style {
 			dressGameObject[i].SetActive(i == (int) dressStyle);
 		}
 	}
+
+	public void SetStyle() {
+
+	}
 }
