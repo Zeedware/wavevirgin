@@ -4,33 +4,32 @@ using System.Collections;
 [System.Serializable]
 public struct Style {
 
-	public HairStyle hairStyle;
-	public DressStyle dressStyle;
-	public int styleType;
+	public const int maxStyle = 15;
 
-	public GameObject[] hairGameObject;
-	public GameObject[] dressGameObject;
+	public int styleType;
+	public GameObject[] normalGameObject;
+	public GameObject[] activeGameObject;
+	public GameObject[] profileGameObject;
+
+	public SpriteRenderer[] normalSpriteRenderer;
+	public SpriteRenderer[] activeSpriteRenderer;
+	public SpriteRenderer[] profileSpriteRenderer;
 
 	public void Init(int orderInLayer) {
-		for (int i = 0; i < (int)HairStyle.Count; ++i) {
-			hairGameObject[i].GetComponent<SpriteRenderer>().sortingOrder = orderInLayer;
-		}
-
-		for (int i = 0; i < (int)DressStyle.Count; ++i) {
-			dressGameObject[i].GetComponent<SpriteRenderer>().sortingOrder = orderInLayer;
+		for (int i = 0; i < maxStyle; ++i) {
+			normalSpriteRenderer[i].sortingOrder = orderInLayer;
+			activeSpriteRenderer[i].sortingOrder = orderInLayer;
+			profileSpriteRenderer[i].sortingOrder = orderInLayer;
 		}
 	}
 
 	public void RandomizeStyle() {
-		hairStyle = (HairStyle) Random.Range(0, (int) HairStyle.Count);
-		dressStyle = (DressStyle) Random.Range(0, (int) DressStyle.Count);
+		styleType = Random.Range(0, maxStyle);
 
-		for (int i = 0; i < (int)HairStyle.Count; ++i) {
-			hairGameObject[i].SetActive(i == (int) hairStyle);
-		}
-
-		for (int i = 0; i < (int)DressStyle.Count; ++i) {
-			dressGameObject[i].SetActive(i == (int) dressStyle);
+		for (int i = 0; i < maxStyle; ++i) {
+			normalGameObject[i].SetActive(i == styleType);
+			activeGameObject[i].SetActive(i == styleType);
+			profileGameObject[i].SetActive(i == styleType);
 		}
 	}
 
