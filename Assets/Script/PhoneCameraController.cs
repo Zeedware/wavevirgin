@@ -25,4 +25,14 @@ public class PhoneCameraController : MonoBehaviour {
 			virginPhoto[i].TriggerSwipeRight();
 		}
 	}
+
+	public bool IsRight(Style style) {
+		for (int i = 0; i < 3; ++i) {
+			if (virginPhoto[i].photoID == 0) {
+				return virginPhoto[i].IsRight(style);
+			}
+		}
+
+		return false;
+	}
 }
