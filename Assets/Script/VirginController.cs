@@ -20,6 +20,8 @@ public class VirginController : MonoBehaviour {
 	public Vector3 mouseBeginPosition;
 	public Vector3 mousePosition;
 
+	public float forceAmount;
+
 	public void Awake() {
 		SpawnInitial();
 		style.Init(virginManager.GetVirginCounter());
@@ -43,6 +45,9 @@ public class VirginController : MonoBehaviour {
 			mousePosition = new Vector3 (Input.mousePosition.x, Input.mousePosition.y, mousePosition.z);
 			virginTransform.position = Camera.main.ScreenToWorldPoint(mousePosition);
 		}
+
+		if (Input.GetKeyDown (KeyCode.F))
+			virginRigidbody.AddForce (new Vector2 (100, 0), ForceMode2D.Force);
 	}
 
 	public void OnBeginDrag(BaseEventData data) {
@@ -56,11 +61,21 @@ public class VirginController : MonoBehaviour {
 			isDraggedBegin = false;
 			isDragged = true;
 			virginRigidbody.velocity = Vector3.zero;
+			mousePosition = Input.mousePosition;
+			mousePosition.z = virginTransform.position.z + 10;
 		} 
+
 	}
 
 	public void OnEndDrag(BaseEventData data) {
 		isDragged = false;
+		Debug.Log ("mouse position : " + mousePosition);
+		Debug.Log ("new mouse position : " + Input.mousePosition);
+		Vector3 newMousePosition = Input.mousePosition - mousePosition;
+		Debug.Log ("new delta mouse position : " + newMousePosition);
+		virginRigidbody.AddForce (new Vector2 (newMousePosition.x * forceAmount, newMousePosition.y*forceAmount), ForceMode2D.Force);
+
+
 	}
 
 	public void OnPointerClick(BaseEventData data) {
