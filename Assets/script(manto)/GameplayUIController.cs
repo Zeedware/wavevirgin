@@ -49,14 +49,20 @@ public class GameplayUIController : MonoBehaviour {
 	{
 		if (Input.GetKeyDown (KeyCode.A)) {
 			GameEvent.OnAddScore (1);
-			StartCoroutine (PlayParticle (Random.Range(0,1) < 0.5f));
+			GameEvent.OnTouchPeople (true);
+			StartCoroutine (PlayParticle (true));
+		}
+
+		if (Input.GetKeyDown (KeyCode.Z)) {
+			GameEvent.OnTouchPeople (false);
+			StartCoroutine (PlayParticle (false));
 		}
 	}
 
 	IEnumerator PlayParticle(bool isRight)
 	{
 		Vector3 particlePosition = Camera.main.ScreenToWorldPoint (Input.mousePosition);
-		particleContainer.transform.position = new Vector3 (particlePosition.x, particlePosition.y, 0);
+		particleContainer.transform.position = new Vector3 (particlePosition.x, particlePosition.y, particleContainer.transform.position.z);
 		particleContainer.SetActive (true);
 		ParticleSystem particle;
 
