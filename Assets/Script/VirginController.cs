@@ -80,7 +80,7 @@ public class VirginController : MonoBehaviour {
 
 	public void OnPointerClick(BaseEventData data) {
 		if (!isDragged) {
-
+			Debug.Log(GameController.Instance.IsRight(style));
 		}
 	}
 }

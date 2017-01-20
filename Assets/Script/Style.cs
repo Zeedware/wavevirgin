@@ -6,6 +6,7 @@ public struct Style {
 
 	public HairStyle hairStyle;
 	public DressStyle dressStyle;
+	public int styleType;
 
 	public GameObject[] hairGameObject;
 	public GameObject[] dressGameObject;
@@ -36,4 +37,27 @@ public struct Style {
 	public void SetStyle() {
 
 	}
+
+	public static bool operator ==(Style x, Style y) {
+		return x.styleType == y.styleType;
+	}
+
+	public static bool operator !=(Style x, Style y) {
+		return x.styleType != y.styleType;
+	}
+
+	public override bool Equals(object o) 
+	{
+		try {
+			return this == (Style) o;
+
+		} catch  {
+			return false;
+		}
+	}
+
+	public override int GetHashCode() {
+		return 4;
+	}
+
 }

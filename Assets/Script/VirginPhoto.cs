@@ -90,4 +90,8 @@ public class VirginPhoto : MonoBehaviour {
 		isMoving = false;
 		virginTransform.localPosition = photoStartPosition[photoID];
 	}
+
+	public bool IsRight(Style style) {
+		return this.style == style;
+	}
 }
