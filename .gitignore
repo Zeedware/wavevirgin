@@ -1,0 +1,17 @@
+Temp/
+Library/
+LocalCache
+obj
+*.csproj
+*.pidb
+*.unityproj
+*.sln
+*.userprefs
+.DS_Store
+*.Trashes
+*.swp
+*.apk
+ No newline at end of file
+WEB/Tap Virgin/Tap Virgin.html
+WEB/Tap Virgin/Tap Virgin.unity3d
+apk Tap Vigin 2016-01-31 new.zip
