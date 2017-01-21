@@ -45,9 +45,7 @@ public class VirginController : MonoBehaviour {
 			mousePosition = new Vector3 (Input.mousePosition.x, Input.mousePosition.y, mousePosition.z);
 			virginTransform.position = Camera.main.ScreenToWorldPoint(mousePosition);
 		}
-
-		if (Input.GetKeyDown (KeyCode.F))
-			virginRigidbody.AddForce (new Vector2 (100, 0), ForceMode2D.Force);
+			
 	}
 
 	public void OnBeginDrag(BaseEventData data) {
