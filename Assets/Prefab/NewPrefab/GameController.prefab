@@ -22,8 +22,8 @@ GameObject:
   - 20: {fileID: 20000010653765430}
   - 81: {fileID: 81000010905817614}
   - 114: {fileID: 114000012230772652}
-  - 114: {fileID: 114000010959117206}
   - 114: {fileID: 114000010465413694}
+  - 114: {fileID: 114000010959117206}
   m_Layer: 0
   m_Name: GameController
   m_TagString: MainCamera

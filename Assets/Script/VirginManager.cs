@@ -39,8 +39,10 @@ public class VirginManager : MonoBehaviour {
 	}
 
 	public void EarthquakeUpdate(Style style) {
-		for (int i = 0; i < virginCount; ++i) {
-			virginController[i].TriggerEarthquake(style);
+		if (isEarthquake) {
+			for (int i = 0; i < virginCount; ++i) {
+				virginController[i].TriggerEarthquake(style);
+			}
 		}
 	}
 
