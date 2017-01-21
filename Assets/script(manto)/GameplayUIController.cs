@@ -36,7 +36,7 @@ public class GameplayUIController : MonoBehaviour {
 	public void GameEvent_onEarthShakeE ()
 	{
 		Debug.Log ("SKILL EARTH SHAKE");
-		virginManager.EarthquakeBegin (PhoneCameraController.Instance.virginPhoto [1].virginController.style);
+		PhoneCameraController.Instance.CallEarthquake();
 	}
 
 	void ActivateSkill_1()

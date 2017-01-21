@@ -415,6 +415,7 @@ MonoBehaviour:
   virginCounter: 0
   prefab: {fileID: 1000010309612430, guid: 68d1ab4210ea34fe4988c89f44b6bd1c, type: 2}
   isEarthquake: 0
+  earthquakeCooldown: -1
 --- !u!212 &212000010514452382
 SpriteRenderer:
   m_ObjectHideFlags: 1

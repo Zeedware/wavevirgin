@@ -30,6 +30,7 @@ public class VirginController : MonoBehaviour {
 	public Vector3 mousePosition;
 	private Vector3 oldVelocity;
 
+	public bool isActive;
 	public float forceAmount;
 
 	public void Init(VirginManager virginManager) {
@@ -59,6 +60,7 @@ public class VirginController : MonoBehaviour {
 	}
 
 	public void SpawnInitial() {
+		isActive = true;
 		bool isEdgeLeft = Random.Range(0, 2) == 0;
 		styleTransform.localScale = new Vector3((isEdgeLeft ? -1 : 1), 1, 1);
 		virginTransform.localEulerAngles = Vector3.zero;
@@ -72,6 +74,7 @@ public class VirginController : MonoBehaviour {
 	}
 
 	public void SpawnEdge() {
+		isActive = true;
 		bool isEdgeLeft = Random.Range(0, 2) == 0;
 		styleTransform.localScale = new Vector3((isEdgeLeft ? -1 : 1), 1, 1);
 		virginTransform.localEulerAngles = Vector3.zero;
@@ -116,7 +119,8 @@ public class VirginController : MonoBehaviour {
 	}
 
 	public void OnEndDrag(BaseEventData data) {
-		if (!isPhoto && EventSystem.current.IsPointerOverGameObject()) {
+		if (!isPhoto && EventSystem.current.IsPointerOverGameObject() && isDragged) {
+			isActive = false;
 			isDragged = false;
 			Vector3 newMousePosition = Input.mousePosition - mousePosition;
 			virginRigidbody.AddForce (new Vector2 (newMousePosition.x * forceAmount, newMousePosition.y*forceAmount), ForceMode2D.Force);
@@ -141,7 +145,7 @@ public class VirginController : MonoBehaviour {
 	}
 
 	public void OnPointerClick(BaseEventData data) {
-		if (!isPhoto && EventSystem.current.IsPointerOverGameObject()) {
+		if (!isPhoto && EventSystem.current.IsPointerOverGameObject() && isActive) {
 			if (!isDragged) {
 				if (GameController.Instance.IsRight(style)) {
 					OnCorrect();
@@ -154,6 +158,7 @@ public class VirginController : MonoBehaviour {
 	}
 
 	public void OnCorrect() {
+		isActive = false;
 		virginAnimator.SetTrigger("Correct");
         if (style.styleClass==0)
         {
@@ -168,6 +173,7 @@ public class VirginController : MonoBehaviour {
 	}
 
 	public void OnWrong() {
+		isActive = false;
 		virginAnimator.SetTrigger("Wrong");
         if (style.styleClass == 0)
         {
