@@ -52,7 +52,8 @@ public class VirginManager : MonoBehaviour {
 			virginController[i].TriggerInitialEarthquake(style);
 		}
 		GameController.Instance.CameraEarthquake();
-	}
+        AudioManager.Instance.playQuake();
+    }
 
 	public void EarthquakeEnd() {
 		isEarthquake = false;
@@ -60,6 +61,7 @@ public class VirginManager : MonoBehaviour {
 			virginController[i].TriggerWalk();
 		}
 		GameController.Instance.CameraIdle();
+        AudioManager.Instance.stopQuake();
 	}
 
 	public int GetVirginCounter() {
