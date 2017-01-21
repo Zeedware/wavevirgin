@@ -9,6 +9,7 @@ public class GameplayUIController : MonoBehaviour {
 	public GameObject particleContainer;
 	public Button skill_earthShake;
 	public ParticlePool particlePool;
+	public VirginManager virginManager;
 
 	void OnEnable()
 	{
@@ -25,7 +26,7 @@ public class GameplayUIController : MonoBehaviour {
 	}
 	void Start()
 	{
-		skill_earthShake.onClick.AddListener (ActivateSkill_1);
+		skill_earthShake.onClick.AddListener (GameEvent_onEarthShakeE);
 	}
 	public void RestartGameplay()
 	{
@@ -35,6 +36,7 @@ public class GameplayUIController : MonoBehaviour {
 	void GameEvent_onEarthShakeE ()
 	{
 		Debug.Log ("SKILL EARTH SHAKE");
+		virginManager.EarthquakeBegin (PhoneCameraController.Instance.virginPhoto [1].virginController.style);
 	}
 
 	void ActivateSkill_1()
