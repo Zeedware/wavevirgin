@@ -4,14 +4,15 @@ using System.Collections;
 
 public class VirginController : MonoBehaviour {
 
-	private Vector2[] edgePosition = new Vector2[] {
-		new Vector2(-10, -2.448951f),
-		new Vector2(10, -2.448951f),
-	};
-
+	public const float maxArea = 13f;
 	public const float maxSpeed = 2f;
 	public const float minSpeed = 0.75f;
 	public bool isPhoto;
+
+	private Vector2[] edgePosition = new Vector2[] {
+		new Vector2(-maxArea, -2.448951f),
+		new Vector2(maxArea, -2.448951f),
+	};
 
 	public VirginManager virginManager;
 	public float virginSpeed;
@@ -53,7 +54,7 @@ public class VirginController : MonoBehaviour {
 		bool isEdgeLeft = Random.Range(0, 2) == 0;
 		styleTransform.localScale = new Vector3((isEdgeLeft ? -1 : 1), 1, 1);
 
-		virginTransform.position = new Vector3 (Random.Range(-10f, 10f), -2.798917f, Random.Range(0, 2f));
+		virginTransform.position = new Vector3 (Random.Range(-maxArea, maxArea), -2.79851f, Random.Range(0, 2f));
 		virginRigidbody.velocity = new Vector2 (Random.Range(0, maxSpeed) * (isEdgeLeft ? 1 : -1), 0);
 		style.RandomizeStyle();
 	}
@@ -77,10 +78,6 @@ public class VirginController : MonoBehaviour {
 			if (Input.GetKeyDown (KeyCode.F))
 				virginRigidbody.AddForce (new Vector2 (100, 0), ForceMode2D.Force);
 		}
-<<<<<<< HEAD
-=======
-			
->>>>>>> origin/master
 	}
 
 	public void OnBeginDrag(BaseEventData data) {
