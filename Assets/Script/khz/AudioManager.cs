@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class AudioManager : MonoBehaviour {
     AudioSource source;
-    AudioSource quakeSource;
+    public AudioSource quakeSource;
     
     public AudioClip cewekCorrect1;
     public AudioClip cewekCorrect2;

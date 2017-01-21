@@ -352,6 +352,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc15bd6d68a33fb4e9ec62cd88eae0e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  quakeSource: {fileID: 82866741327220600}
   cewekCorrect1: {fileID: 8300000, guid: 98fb0f7cb3bd64049bada975191a0817, type: 3}
   cewekCorrect2: {fileID: 8300000, guid: 6ccf5fa3a62fe2448a47218529c7a408, type: 3}
   cewekCorrect3: {fileID: 8300000, guid: b07dd40c53aee644eaa0028cf1a418c6, type: 3}
