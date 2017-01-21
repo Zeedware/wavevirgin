@@ -27,7 +27,11 @@ public class GameplayUIController : MonoBehaviour {
 	{
 		skill_earthShake.onClick.AddListener (ActivateSkill_1);
 	}
-
+	public void RestartGameplay()
+	{
+		currentScore = 0;
+		GameEvent_onAddScoreE (0);
+	}
 	void GameEvent_onEarthShakeE ()
 	{
 		Debug.Log ("SKILL EARTH SHAKE");
@@ -65,6 +69,8 @@ public class GameplayUIController : MonoBehaviour {
 		StartCoroutine (PlayParticle (isRight));
 		Debug.Log ("play particle");
 		}
+
+
 
 	}
 	IEnumerator PlayParticle(bool isRight)

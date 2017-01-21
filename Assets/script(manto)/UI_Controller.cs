@@ -12,7 +12,8 @@ public class UI_Controller : MonoBehaviour {
 			return _instance;
 		}
 	}
-
+	public GameplayUIController gameplayUI;
+	public SatisifactionController satisfaction;
 	public GameObject mainMenu, gamePlay, gameOver;
 	public Button playButton, quitButton, playAgainButton, mainMenuButton;
 
@@ -27,23 +28,19 @@ public class UI_Controller : MonoBehaviour {
 
 		GotoMainMenu ();
 	}
-	void Update()
-	{
-		if (Input.GetKeyDown (KeyCode.G))
-			GotoMainMenu ();
-		if (Input.GetKeyDown (KeyCode.H))
-			GotoGamePlay ();
-		if (Input.GetKeyDown (KeyCode.I))
-			GotoGameOver ();
-	}
+
 	void GotoMainMenu()
 	{
 		GotoView (VIEW_STATE.MAIN_MENU);
 	}
 	void GotoGamePlay()
 	{
+		gameplayUI.RestartGameplay ();
+		satisfaction.ResetAllValue ();
 		GotoView (VIEW_STATE.GAMEPLAY);
-	}void GotoGameOver()
+	}
+
+	void GotoGameOver()
 	{
 		GotoView (VIEW_STATE.GAMEOVER);
 	}
