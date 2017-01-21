@@ -6,6 +6,7 @@ public class SatisifactionController : MonoBehaviour {
 
 
 	public Scrollbar satisfactionMeter;
+	public Image satisfactionBar;
 	public float satisfactionPoin , maxSatisfactionPoin, decreaseSpeed, falsePenalty, trueBonus;
 
 	void OnEnable () {
@@ -40,6 +41,7 @@ public class SatisifactionController : MonoBehaviour {
 	void Update () {
 		satisfactionPoin -= Time.deltaTime * decreaseSpeed;
 		satisfactionMeter.value = satisfactionPoin/maxSatisfactionPoin;
+		satisfactionBar.fillAmount = satisfactionPoin / maxSatisfactionPoin;
 		if(satisfactionMeter.value <= 0)
 			UI_Controller.Instance.GotoView (VIEW_STATE.GAMEOVER);
 
