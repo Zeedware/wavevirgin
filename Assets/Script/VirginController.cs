@@ -12,8 +12,8 @@ public class VirginController : MonoBehaviour {
 	public bool isPhoto;
 
 	private Vector2[] edgePosition = new Vector2[] {
-		new Vector2(-maxArea, -2.448951f),
-		new Vector2(maxArea, -2.448951f),
+		new Vector2(-maxArea, -3.073636f),
+		new Vector2(maxArea, -3.073636f),
 	};
 
 	public VirginManager virginManager;
@@ -42,6 +42,7 @@ public class VirginController : MonoBehaviour {
 	}
 
 	public bool IsRight(Style style) {
+		Debug.Log("Clicked: " + style.styleType + " Target: " + this.style.styleType);
 		return this.style == style;
 	}
 
@@ -94,7 +95,7 @@ public class VirginController : MonoBehaviour {
 			isDraggedBegin = true;
 			mousePosition = Input.mousePosition;
 			mousePosition.z = virginTransform.position.z + 10;
-			mouseBeginPosition = Input.mousePosition;
+			//mouseBeginPosition = Input.mousePosition;
 		}
 	}
 
@@ -153,6 +154,7 @@ public class VirginController : MonoBehaviour {
 
 	public void OnCorrect() {
 		virginAnimator.SetTrigger("Correct");
+<<<<<<< Updated upstream
         if (style.styleClass==0)
         {
             AudioManager.Instance.playSfx("cewekcorrect");
@@ -161,10 +163,14 @@ public class VirginController : MonoBehaviour {
             AudioManager.Instance.playSfx("priacorrect");
         }
         
+=======
+		PhoneCameraController.Instance.SwipeLeft();
+>>>>>>> Stashed changes
 	}
 
 	public void OnWrong() {
 		virginAnimator.SetTrigger("Wrong");
+<<<<<<< Updated upstream
         if (style.styleClass == 0)
         {
             AudioManager.Instance.playSfx("cewekwrong");
@@ -182,6 +188,10 @@ public class VirginController : MonoBehaviour {
             AudioManager.Instance.playSfx("tantewrong");
         }
     }
+=======
+		PhoneCameraController.Instance.SwipeRight();
+	}
+>>>>>>> Stashed changes
 
 	public void OnCorrectAnimation() {
 		virginAnimator.speed = 1;
