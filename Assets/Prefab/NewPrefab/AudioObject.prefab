@@ -348,5 +348,5 @@ MonoBehaviour:
   priaBuang1: {fileID: 8300000, guid: 753c1f6f1cf6a3644a916566d5852ac4, type: 3}
   omWrong1: {fileID: 8300000, guid: 5853fb3eb101bb44ea95372d7732bd20, type: 3}
   omBuang1: {fileID: 8300000, guid: ba8d5e688dd1b1b49b7d44d2cff1420f, type: 3}
-  tanteWrong1: {fileID: 8300000, guid: 4cbb8b77999327f4fbb103d358f7cec9, type: 3}
-  tanteBuang1: {fileID: 8300000, guid: 4cbb8b77999327f4fbb103d358f7cec9, type: 3}
+  tanteWrong1: {fileID: 8300000, guid: 5e54b5cd5d666cc4fa74fd121322c8bb, type: 3}
+  tanteBuang1: {fileID: 8300000, guid: 5e54b5cd5d666cc4fa74fd121322c8bb, type: 3}
