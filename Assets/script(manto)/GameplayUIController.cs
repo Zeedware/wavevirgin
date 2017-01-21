@@ -36,7 +36,7 @@ public class GameplayUIController : MonoBehaviour {
 	public void GameEvent_onEarthShakeE ()
 	{
 		Debug.Log ("SKILL EARTH SHAKE");
-		virginManager.EarthquakeBegin (PhoneCameraController.Instance.virginPhoto [1].virginController.style);
+		virginManager.EarthquakeBegin (PhoneCameraController.Instance.virginPhoto [0].virginController.style);
 	}
 
 	void ActivateSkill_1()
@@ -54,7 +54,6 @@ public class GameplayUIController : MonoBehaviour {
 	void Update()
 	{
 		if (Input.GetKeyDown (KeyCode.A)) {
-			GameEvent.OnAddScore (1);
 			GameEvent.OnTouchPeople (true);
 			GameEvent_onTouchPeopleE (true);
 		}
@@ -67,9 +66,11 @@ public class GameplayUIController : MonoBehaviour {
 
 	void GameEvent_onTouchPeopleE (bool isRight)
 	{
+		if(isRight)
+			GameEvent.OnAddScore (1);
 		if (gameObject.activeInHierarchy) {
-		StartCoroutine (PlayParticle (isRight));
-		Debug.Log ("play particle");
+			StartCoroutine (PlayParticle (isRight));
+			Debug.Log ("play particle");
 		}
 
 

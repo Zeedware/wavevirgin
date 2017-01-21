@@ -222,6 +222,11 @@ Prefab:
       propertyPath: phoneCameraController
       value: 
       objectReference: {fileID: 1920524665}
+    - target: {fileID: 95000011142361970, guid: c0b4387bb011448a0a81b5e86d139bdf,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c0b4387bb011448a0a81b5e86d139bdf, type: 2}
   m_IsPrefabParent: 0
