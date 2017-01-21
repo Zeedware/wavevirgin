@@ -5,8 +5,6 @@ using UnityEngine;
 public class AudioManager : MonoBehaviour {
     AudioSource source;
     
-
-
     public AudioClip cewekCorrect1;
     public AudioClip cewekCorrect2;
     public AudioClip cewekCorrect3;
