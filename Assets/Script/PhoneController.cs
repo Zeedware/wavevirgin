@@ -57,6 +57,16 @@ public class PhoneController : MonoBehaviour {
 		}
 	}
 
+	private void Update() {
+
+		if (Input.GetKeyDown(KeyCode.Alpha2)) {
+			TriggerShowPhone();
+		}
+		if (Input.GetKeyDown(KeyCode.Alpha3)) {
+			TriggerHidePhone();
+		}
+	}
+
 	public void OnClick() {
 		if (!isDragged) {
 			if (isUp) {
