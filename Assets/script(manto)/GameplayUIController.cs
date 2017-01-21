@@ -15,13 +15,18 @@ public class GameplayUIController : MonoBehaviour {
 	{
 		GameEvent.onAddScoreE += GameEvent_onAddScoreE;
 		GameEvent.onEarthShakeE += GameEvent_onEarthShakeE;
+		GameEvent.onTouchPeopleE += GameEvent_onTouchPeopleE;
 	}
+
+
 
 
 	void OnDisable()
 	{
 		GameEvent.onAddScoreE -= GameEvent_onAddScoreE;
 		GameEvent.onEarthShakeE -= GameEvent_onEarthShakeE;
+		GameEvent.onTouchPeopleE -= GameEvent_onTouchPeopleE;
+
 
 	}
 
@@ -43,7 +48,7 @@ public class GameplayUIController : MonoBehaviour {
 	void GameEvent_onAddScoreE (int score)
 	{
 		currentScore += score;
-		scoreText.text = "Score : " + currentScore.ToString ();
+		scoreText.text += "\n" + currentScore.ToString ();
 	}
 
 	void Update()
@@ -60,6 +65,12 @@ public class GameplayUIController : MonoBehaviour {
 		}
 	}
 
+	void GameEvent_onTouchPeopleE (bool isRight)
+	{
+		StartCoroutine (PlayParticle (isRight));
+		Debug.Log ("play particle");
+
+	}
 	IEnumerator PlayParticle(bool isRight)
 	{
 		Vector3 particlePosition = Camera.main.ScreenToWorldPoint (Input.mousePosition);

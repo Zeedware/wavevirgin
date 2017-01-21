@@ -28,6 +28,7 @@ public class VirginController : MonoBehaviour {
 	public Vector3 mousePosition;
 
 	public float forceAmount;
+	bool isSelected = false;
 
 	public void Awake() {
 		if (isPhoto) {
@@ -52,6 +53,8 @@ public class VirginController : MonoBehaviour {
 	}
 
 	public void SpawnInitial() {
+		isSelected = false;
+
 		bool isEdgeLeft = Random.Range(0, 2) == 0;
 		styleTransform.localScale = new Vector3((isEdgeLeft ? -1 : 1), 1, 1);
 		virginTransform.localEulerAngles = Vector3.zero;
@@ -65,6 +68,8 @@ public class VirginController : MonoBehaviour {
 	}
 
 	public void SpawnEdge() {
+		isSelected = false;
+
 		bool isEdgeLeft = Random.Range(0, 2) == 0;
 		styleTransform.localScale = new Vector3((isEdgeLeft ? -1 : 1), 1, 1);
 		virginTransform.localEulerAngles = Vector3.zero;
@@ -120,8 +125,9 @@ public class VirginController : MonoBehaviour {
 	}
 
 	public void OnPointerClick(BaseEventData data) {
-		if (!isPhoto && EventSystem.current.IsPointerOverGameObject()) {
+		if (!isPhoto && EventSystem.current.IsPointerOverGameObject() && !isSelected) {
 			if (!isDragged) {
+				isSelected = true;
 				if (GameController.Instance.IsRight(style)) {
 					OnCorrect();
 
@@ -133,11 +139,16 @@ public class VirginController : MonoBehaviour {
 	}
 
 	public void OnCorrect() {
+		Debug.Log ("OnCOrrect");
 		virginAnimator.SetTrigger("Correct");
+		GameEvent.OnTouchPeople (true);
+
 	}
 
 	public void OnWrong() {
+		Debug.Log ("OnWrong");
 		virginAnimator.SetTrigger("Wrong");
+		GameEvent.OnTouchPeople (false);
 	}
 
 	public void OnCorrectAnimation() {
