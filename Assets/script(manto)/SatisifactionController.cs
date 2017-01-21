@@ -39,7 +39,9 @@ public class SatisifactionController : MonoBehaviour {
 		satisfactionPoin += value;
 		satisfactionPoin = Mathf.Clamp (satisfactionPoin, 0, maxSatisfactionPoin);
 
-		if (satisfactionPoin <= 0)
+		if (satisfactionPoin <= 0) {
 			Debug.Log ("Game Over Bruuh..");
+			UI_Controller.Instance.GotoView (VIEW_STATE.GAMEOVER);
+		}
 	}
 }

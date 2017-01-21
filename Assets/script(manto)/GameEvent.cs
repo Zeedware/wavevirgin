@@ -26,4 +26,5 @@ public class GameEvent {
 		if (onTouchPeopleE != null)
 			onTouchPeopleE (isRight);
 	}
+
 }

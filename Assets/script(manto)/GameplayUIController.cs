@@ -4,7 +4,7 @@ using UnityEngine.UI;
 
 public class GameplayUIController : MonoBehaviour {
 
-	public Text scoreText;
+	public Text scoreText, resultScoreText;
 	public int currentScore;
 	public GameObject particleContainer;
 	public ParticleSystem touchParticle_Right, touchParticle_False;
@@ -18,18 +18,12 @@ public class GameplayUIController : MonoBehaviour {
 		GameEvent.onTouchPeopleE += GameEvent_onTouchPeopleE;
 	}
 
-
-
-
 	void OnDisable()
 	{
 		GameEvent.onAddScoreE -= GameEvent_onAddScoreE;
 		GameEvent.onEarthShakeE -= GameEvent_onEarthShakeE;
 		GameEvent.onTouchPeopleE -= GameEvent_onTouchPeopleE;
-
-
 	}
-
 	void Start()
 	{
 		skill_earthShake.onClick.AddListener (ActivateSkill_1);
@@ -49,6 +43,7 @@ public class GameplayUIController : MonoBehaviour {
 	{
 		currentScore += score;
 		scoreText.text += "\n" + currentScore.ToString ();
+		resultScoreText.text = currentScore.ToString ();
 	}
 
 	void Update()

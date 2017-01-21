@@ -114,10 +114,7 @@ public class VirginController : MonoBehaviour {
 	public void OnEndDrag(BaseEventData data) {
 		if (!isPhoto && EventSystem.current.IsPointerOverGameObject()) {
 			isDragged = false;
-//			Debug.Log ("mouse position : " + mousePosition);
-//			Debug.Log ("new mouse position : " + Input.mousePosition);
 			Vector3 newMousePosition = Input.mousePosition - mousePosition;
-//			Debug.Log ("new delta mouse position : " + newMousePosition);
 			virginRigidbody.AddForce (new Vector2 (newMousePosition.x * forceAmount, newMousePosition.y*forceAmount), ForceMode2D.Force);
 
             if (style.styleClass == 0)
@@ -154,7 +151,7 @@ public class VirginController : MonoBehaviour {
 
 	public void OnCorrect() {
 		virginAnimator.SetTrigger("Correct");
-<<<<<<< Updated upstream
+//<<<<<<< Updated upstream
         if (style.styleClass==0)
         {
             AudioManager.Instance.playSfx("cewekcorrect");
@@ -163,14 +160,14 @@ public class VirginController : MonoBehaviour {
             AudioManager.Instance.playSfx("priacorrect");
         }
         
-=======
-		PhoneCameraController.Instance.SwipeLeft();
->>>>>>> Stashed changes
+//=======
+//		PhoneCameraController.Instance.SwipeLeft();
+//>>>>>>> Stashed changes
 	}
 
 	public void OnWrong() {
 		virginAnimator.SetTrigger("Wrong");
-<<<<<<< Updated upstream
+//<<<<<<< Updated upstream
         if (style.styleClass == 0)
         {
             AudioManager.Instance.playSfx("cewekwrong");
@@ -187,11 +184,11 @@ public class VirginController : MonoBehaviour {
         {
             AudioManager.Instance.playSfx("tantewrong");
         }
-    }
-=======
+//    }
+//=======
 		PhoneCameraController.Instance.SwipeRight();
 	}
->>>>>>> Stashed changes
+//>>>>>>> Stashed changes
 
 	public void OnCorrectAnimation() {
 		virginAnimator.speed = 1;
