@@ -1877,7 +1877,7 @@ GameObject:
   - 114: {fileID: 114732317015607884}
   - 95: {fileID: 95584352313899650}
   m_Layer: 8
-  m_Name: 
+  m_Name: virgin
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2763,7 +2763,7 @@ GameObject:
   - 114: {fileID: 114186684874259618}
   - 95: {fileID: 95789414224428528}
   m_Layer: 8
-  m_Name: 
+  m_Name: virgin
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3536,7 +3536,7 @@ GameObject:
   - 4: {fileID: 4197536764702514}
   - 114: {fileID: 114786856148454822}
   m_Layer: 0
-  m_Name: 
+  m_Name: VirginManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6288,7 +6288,7 @@ GameObject:
   - 114: {fileID: 114869695739907096}
   - 95: {fileID: 95748337008883320}
   m_Layer: 8
-  m_Name: 
+  m_Name: virgin
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6451,7 +6451,7 @@ GameObject:
   - 114: {fileID: 114970132749842894}
   - 95: {fileID: 95883543309037368}
   m_Layer: 8
-  m_Name: 
+  m_Name: virgin
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7598,7 +7598,7 @@ GameObject:
   - 114: {fileID: 114332687604286298}
   - 95: {fileID: 95936568683449368}
   m_Layer: 8
-  m_Name: 
+  m_Name: virgin
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7647,7 +7647,7 @@ GameObject:
   - 61: {fileID: 61114656763522762}
   - 114: {fileID: 114399514400831176}
   m_Layer: 0
-  m_Name: 
+  m_Name: Collider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9931,7 +9931,7 @@ GameObject:
   - 114: {fileID: 114847157367693216}
   - 95: {fileID: 95061407080473798}
   m_Layer: 8
-  m_Name: 
+  m_Name: virgin
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -13750,7 +13750,7 @@ GameObject:
   - 212: {fileID: 212327361177819056}
   - 61: {fileID: 61400773138480302}
   m_Layer: 0
-  m_Name: 
+  m_Name: Ground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -13835,7 +13835,7 @@ GameObject:
   - 114: {fileID: 114457730108100678}
   - 95: {fileID: 95711465590707516}
   m_Layer: 8
-  m_Name: 
+  m_Name: virgin
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -15973,7 +15973,7 @@ GameObject:
   - 114: {fileID: 114389667558596176}
   - 95: {fileID: 95578570993667208}
   m_Layer: 8
-  m_Name: 
+  m_Name: virgin
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -17506,7 +17506,7 @@ GameObject:
   - 114: {fileID: 114627178487144102}
   - 95: {fileID: 95660134320262390}
   m_Layer: 8
-  m_Name: 
+  m_Name: virgin
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -18108,7 +18108,7 @@ GameObject:
   - 114: {fileID: 114246906028913478}
   - 95: {fileID: 95216159603302620}
   m_Layer: 8
-  m_Name: 
+  m_Name: virgin
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -18296,7 +18296,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 4362690822335472}
   m_Layer: 0
-  m_Name: 
+  m_Name: Blocker
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -18365,7 +18365,7 @@ GameObject:
   - 114: {fileID: 114963435781118424}
   - 95: {fileID: 95398372289688584}
   m_Layer: 8
-  m_Name: 
+  m_Name: virgin
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -20197,7 +20197,7 @@ GameObject:
   - 114: {fileID: 114025063338113332}
   - 95: {fileID: 95236971243252298}
   m_Layer: 8
-  m_Name: 
+  m_Name: virgin
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -20738,7 +20738,7 @@ GameObject:
   - 114: {fileID: 114941710182175848}
   - 95: {fileID: 95759539705656792}
   m_Layer: 8
-  m_Name: 
+  m_Name: virgin
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -21261,7 +21261,7 @@ GameObject:
   - 114: {fileID: 114783523592423900}
   - 95: {fileID: 95395952547420480}
   m_Layer: 8
-  m_Name: 
+  m_Name: virgin
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -21565,7 +21565,7 @@ GameObject:
   - 114: {fileID: 114885805927602318}
   - 95: {fileID: 95826748073071276}
   m_Layer: 8
-  m_Name: 
+  m_Name: virgin
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -23212,7 +23212,7 @@ GameObject:
   - 114: {fileID: 114354672697874536}
   - 95: {fileID: 95423168337907436}
   m_Layer: 8
-  m_Name: 
+  m_Name: virgin
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -23691,7 +23691,7 @@ GameObject:
   - 114: {fileID: 114089504168090628}
   - 95: {fileID: 95812886735802802}
   m_Layer: 8
-  m_Name: 
+  m_Name: virgin
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -24234,7 +24234,7 @@ GameObject:
   - 114: {fileID: 114046961105588068}
   - 95: {fileID: 95493165032850546}
   m_Layer: 8
-  m_Name: 
+  m_Name: virgin
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -26019,7 +26019,7 @@ GameObject:
   - 114: {fileID: 114687935446532750}
   - 95: {fileID: 95569879098517700}
   m_Layer: 8
-  m_Name: 
+  m_Name: virgin
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -27285,7 +27285,7 @@ GameObject:
   - 114: {fileID: 114534276293078736}
   - 95: {fileID: 95450787701817910}
   m_Layer: 8
-  m_Name: 
+  m_Name: virgin
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -28599,7 +28599,7 @@ GameObject:
   - 114: {fileID: 114547335845719468}
   - 95: {fileID: 95633175710073408}
   m_Layer: 8
-  m_Name: 
+  m_Name: virgin
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -58088,17 +58088,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a951c758a8d141e9894fe610c7d4d34, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  virginController:
-  - {fileID: 114623373401006280}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
   virginCounter: 0
+  prefab: {fileID: 0}
+  isEarthquake: 0
 --- !u!114 &114792300480397216
 MonoBehaviour:
   m_ObjectHideFlags: 1
