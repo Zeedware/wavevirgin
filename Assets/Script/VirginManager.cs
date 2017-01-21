@@ -51,6 +51,7 @@ public class VirginManager : MonoBehaviour {
 		for (int i = 0; i < virginCount; ++i) {
 			virginController[i].TriggerInitialEarthquake(style);
 		}
+		GameController.Instance.CameraEarthquake();
 	}
 
 	public void EarthquakeEnd() {
@@ -58,6 +59,7 @@ public class VirginManager : MonoBehaviour {
 		for (int i = 0; i < virginCount; ++i) {
 			virginController[i].TriggerWalk();
 		}
+		GameController.Instance.CameraIdle();
 	}
 
 	public int GetVirginCounter() {

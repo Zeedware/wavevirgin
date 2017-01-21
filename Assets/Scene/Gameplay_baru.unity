@@ -406,9 +406,41 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114000012230772652, guid: 8c1acaeac63304cdc9c343ee3ab32fd5,
+        type: 2}
+      propertyPath: cameraAnimator
+      value: 
+      objectReference: {fileID: 1214011412}
+    - target: {fileID: 114000012230772652, guid: 8c1acaeac63304cdc9c343ee3ab32fd5,
+        type: 2}
+      propertyPath: phoneCameraController
+      value: 
+      objectReference: {fileID: 1920524665}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8c1acaeac63304cdc9c343ee3ab32fd5, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &1214011411 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1000012761237372, guid: 8c1acaeac63304cdc9c343ee3ab32fd5,
+    type: 2}
+  m_PrefabInternal: {fileID: 976262059}
+--- !u!95 &1214011412
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1214011411}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 070276787927b462ba929a2045158938, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!1001 &1841844651
 Prefab:
   m_ObjectHideFlags: 0
