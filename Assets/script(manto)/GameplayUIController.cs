@@ -63,12 +63,12 @@ public class GameplayUIController : MonoBehaviour {
 	IEnumerator PlayParticle(bool isRight)
 	{
 		Vector3 particlePosition = Camera.main.ScreenToWorldPoint (Input.mousePosition);
-		particleContainer.transform.position = new Vector3 (particlePosition.x, particlePosition.y, particleContainer.transform.position.z);
-		particleContainer.SetActive (true);
 		ParticleSystem particle = particlePool.GetAvailableParticle(isRight);
+		particle.gameObject.transform.position = new Vector3 (particlePosition.x, particlePosition.y, particleContainer.transform.position.z);
+		particle.gameObject.SetActive (true);
 		particle.Play ();
 		yield return new WaitForSeconds (1);
 		particle.Stop ();
-		particleContainer.SetActive (false);
+		particle.gameObject.SetActive (false);
 	}
 }

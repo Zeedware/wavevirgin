@@ -16,16 +16,17 @@ public class ParticlePool : MonoBehaviour {
 				if (!particleFalseList [i].isPlaying)
 					return particleFalseList [i];
 			}
-			GenerateNewTrueParticle ();
+			return GenerateNewFalseParticle ();
 		} else {
 			for (int i = 0; i < particleTrueList.Count; i++) {
 				if (!particleTrueList [i].isPlaying)
 					return particleTrueList [i];
 			}
-			GenerateNewFalseParticle ();
+			return GenerateNewTrueParticle ();
 		}
 
-		return particleFalseList [0];
+//		return null;
+
 
 	}
 	public ParticleSystem GenerateNewTrueParticle()
