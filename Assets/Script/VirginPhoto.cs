@@ -3,21 +3,24 @@ using System.Collections;
 
 public class VirginPhoto : MonoBehaviour {
 
-	private const float HIDE_TIME = 1f / 0.5f;
+	private const float HIDE_TIME = 1f / 0.25f;
 
 	public Vector3[] photoStartPosition;
 	public Transform virginTransform;
 
 	public int photoID;
-	public Style style;
-
-	public SpriteRenderer[] spriteRenderer;
+	public VirginController virginController;
+	public SpriteRenderer spriteRenderer;
 
 	private bool isMoving;
 	private bool isAdded;
 
+	private void Awake() {
+		RandomizeTarget();
+	}
+
 	public void RandomizeTarget() {
-		style.RandomizeStyle();
+		virginController.RandomizePhoto();
 	}
 
 	public void TriggerSwipeLeft() {
@@ -35,10 +38,12 @@ public class VirginPhoto : MonoBehaviour {
 
 		Vector3 startPosition = virginTransform.localPosition;
 		photoID = photoID - 1;
-
-		for (int i = 0; i < 3; ++i) {
-			spriteRenderer[i].sortingOrder = photoID * 3 + i;
+		if (photoID < 0) {
+			RandomizeTarget();
 		}
+
+		spriteRenderer.sortingOrder = (photoID * 2 + 0);
+		virginController.SetPhotoOrder(photoID * 2 + 1);
 
 		photoID = (photoID + 3) % 3;
 
@@ -70,12 +75,15 @@ public class VirginPhoto : MonoBehaviour {
 		}
 
 		yield return null;
+		if (photoID + 1 >= 3) {
+			RandomizeTarget();
+		}
+
 		photoID = (photoID + 1) % 3;
 		Vector3 startPosition = virginTransform.localPosition;
 
-		for (int i = 0; i < 3; ++i) {
-			spriteRenderer[i].sortingOrder = photoID * 3 + i;
-		}
+		spriteRenderer.sortingOrder = (photoID * 2 + 0);
+		virginController.SetPhotoOrder(photoID * 2 + 1);
 
 		for (float i = 0.0f; i < 1.0f; i += Time.deltaTime * HIDE_TIME) {
 			if (isAdded) {
@@ -92,6 +100,6 @@ public class VirginPhoto : MonoBehaviour {
 	}
 
 	public bool IsRight(Style style) {
-		return this.style == style;
+		return virginController.IsRight(style);
 	}
 }

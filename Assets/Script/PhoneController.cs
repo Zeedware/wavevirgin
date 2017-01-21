@@ -3,7 +3,7 @@ using System.Collections;
 
 public class PhoneController : MonoBehaviour {
 
-	private const float HIDE_TIME = 1f / 0.5f;
+	private const float HIDE_TIME = 1f / 0.25f;
 
 	public Vector3 showPosition;
 	public Vector3 hidePosition;

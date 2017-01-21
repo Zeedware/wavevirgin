@@ -9,10 +9,15 @@ public class VirginController : MonoBehaviour {
 		new Vector2(10, -2.448951f),
 	};
 
+	public const float maxSpeed = 2f;
+	public const float minSpeed = 0.75f;
+	public bool isPhoto;
+
 	public VirginManager virginManager;
 	public float virginSpeed;
 	public Transform virginTransform;
 	public Rigidbody2D virginRigidbody;
+	public Transform styleTransform;
 	public Style style;
 	public bool isDragged;
 	public bool isDraggedBegin;
@@ -23,64 +28,93 @@ public class VirginController : MonoBehaviour {
 	public float forceAmount;
 
 	public void Awake() {
-		SpawnInitial();
-		style.Init(virginManager.GetVirginCounter());
+		if (isPhoto) {
+			style.InitPhoto();
+
+		} else {
+			SpawnInitial();
+			style.Init(virginManager.GetVirginCounter());
+		}
+	}
+
+	public bool IsRight(Style style) {
+		return this.style == style;
+	}
+
+	public void RandomizePhoto() {
+		style.RandomizePhoto();
+	}
+
+	public void SetPhotoOrder(int order) {
+		style.SetOrder(order);
 	}
 
 	public void SpawnInitial() {
-		virginTransform.position = new Vector3 (Random.Range(-10f, 10f), -2.448951f, Random.Range(0, 2f));
-		virginRigidbody.velocity = new Vector2 (Random.Range(-3f, 3f) * Random.Range(0, 2) == 0 ? -1 : 1, 0);
+		bool isEdgeLeft = Random.Range(0, 2) == 0;
+		styleTransform.localScale = new Vector3((isEdgeLeft ? -1 : 1), 1, 1);
+
+		virginTransform.position = new Vector3 (Random.Range(-10f, 10f), -2.798917f, Random.Range(0, 2f));
+		virginRigidbody.velocity = new Vector2 (Random.Range(0, maxSpeed) * (isEdgeLeft ? 1 : -1), 0);
 		style.RandomizeStyle();
 	}
 
 	public void SpawnEdge() {
 		bool isEdgeLeft = Random.Range(0, 2) == 0;
-		virginRigidbody.velocity = new Vector2(3 * (isEdgeLeft ? 1 : -1), 0);
+		styleTransform.localScale = new Vector3((isEdgeLeft ? -1 : 1), 1, 1);
+
+		virginRigidbody.velocity = new Vector2(Random.Range(minSpeed, maxSpeed) * (isEdgeLeft ? 1 : -1), 0);
 		virginTransform.position = edgePosition[isEdgeLeft ? 0 : 1] + new Vector2(Random.Range(-1f, 1f), 0);
 		style.RandomizeStyle();
 	}
 
 	public void Update() {
-		if (isDragged) {
-			mousePosition = new Vector3 (Input.mousePosition.x, Input.mousePosition.y, mousePosition.z);
-			virginTransform.position = Camera.main.ScreenToWorldPoint(mousePosition);
-		}
+		if (!isPhoto) {
+			if (isDragged) {
+				mousePosition = new Vector3 (Input.mousePosition.x, Input.mousePosition.y, mousePosition.z);
+				virginTransform.position = Camera.main.ScreenToWorldPoint(mousePosition);
+			}
 
-		if (Input.GetKeyDown (KeyCode.F))
-			virginRigidbody.AddForce (new Vector2 (100, 0), ForceMode2D.Force);
+			if (Input.GetKeyDown (KeyCode.F))
+				virginRigidbody.AddForce (new Vector2 (100, 0), ForceMode2D.Force);
+		}
 	}
 
 	public void OnBeginDrag(BaseEventData data) {
-		isDraggedBegin = true;
-		mousePosition = Input.mousePosition;
-		mousePosition.z = virginTransform.position.z + 10;
+		if (!isPhoto) {
+			isDraggedBegin = true;
+			mousePosition = Input.mousePosition;
+			mousePosition.z = virginTransform.position.z + 10;
+		}
 	}
 
 	public void OnDrag(BaseEventData data) {
-		if (isDraggedBegin && (mouseBeginPosition - Input.mousePosition).sqrMagnitude > 10) {
-			isDraggedBegin = false;
-			isDragged = true;
-			virginRigidbody.velocity = Vector3.zero;
-			mousePosition = Input.mousePosition;
-			mousePosition.z = virginTransform.position.z + 10;
-		} 
-
+		if (!isPhoto) {
+			if (isDraggedBegin && (mouseBeginPosition - Input.mousePosition).sqrMagnitude > 10) {
+				isDraggedBegin = false;
+				isDragged = true;
+				virginRigidbody.velocity = Vector3.zero;
+				mousePosition = Input.mousePosition;
+				mousePosition.z = virginTransform.position.z + 10;
+			} 
+		}
 	}
 
 	public void OnEndDrag(BaseEventData data) {
-		isDragged = false;
-		Debug.Log ("mouse position : " + mousePosition);
-		Debug.Log ("new mouse position : " + Input.mousePosition);
-		Vector3 newMousePosition = Input.mousePosition - mousePosition;
-		Debug.Log ("new delta mouse position : " + newMousePosition);
-		virginRigidbody.AddForce (new Vector2 (newMousePosition.x * forceAmount, newMousePosition.y*forceAmount), ForceMode2D.Force);
-
-
+		if (!isPhoto) {
+			isDragged = false;
+//			Debug.Log ("mouse position : " + mousePosition);
+//			Debug.Log ("new mouse position : " + Input.mousePosition);
+			Vector3 newMousePosition = Input.mousePosition - mousePosition;
+//			Debug.Log ("new delta mouse position : " + newMousePosition);
+			virginRigidbody.AddForce (new Vector2 (newMousePosition.x * forceAmount, newMousePosition.y*forceAmount), ForceMode2D.Force);
+		}
 	}
 
 	public void OnPointerClick(BaseEventData data) {
-		if (!isDragged) {
-			Debug.Log(GameController.Instance.IsRight(style));
+		if (!isPhoto) {
+			if (!isDragged) {
+				Debug.Log(GameController.Instance.IsRight(style));
+			}
 		}
 	}
 }
