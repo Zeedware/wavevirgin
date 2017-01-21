@@ -26,6 +26,16 @@ public class PhoneCameraController : MonoBehaviour {
 		}
 	}
 
+	public void CallEarthquake() {
+		if (VirginManager.Instance.IsEarthquakeReady()) {
+			for (int i = 0; i < virginPhoto.Length; ++i) {
+				if (virginPhoto[i].photoID == 1) {
+					VirginManager.Instance.EarthquakeBegin(virginPhoto[i].virginController.style);
+				} 
+			}
+		}
+	}
+
 	public void SwipeLeft() {
 		Style targetStyle = virginPhoto[1].virginController.style;
 		for (int i = 0; i < virginPhoto.Length; ++i) {

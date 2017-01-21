@@ -84,7 +84,7 @@ public struct Style {
 	}
 
 	public void RandomizePhoto() {
-		styleType = Random.Range(0, maxStyle);
+		styleType = Random.Range(0, 14);
 
         setStyleClass(styleType);
 
