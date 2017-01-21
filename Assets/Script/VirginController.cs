@@ -47,7 +47,6 @@ public class VirginController : MonoBehaviour {
 	}
 
 	public bool IsRight(Style style) {
-		Debug.Log("Clicked: " + style.styleType + " Target: " + this.style.styleType);
 		return this.style == style;
 	}
 

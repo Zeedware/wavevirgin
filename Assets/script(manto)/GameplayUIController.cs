@@ -68,13 +68,10 @@ public class GameplayUIController : MonoBehaviour {
 	void GameEvent_onTouchPeopleE (bool isRight)
 	{
 		if (gameObject.activeInHierarchy) {
-		StartCoroutine (PlayParticle (isRight));
-		Debug.Log ("play particle");
+			StartCoroutine (PlayParticle (isRight));
 		}
-
-
-
 	}
+
 	IEnumerator PlayParticle(bool isRight)
 	{
 		Vector3 particlePosition = Camera.main.ScreenToWorldPoint (Input.mousePosition);

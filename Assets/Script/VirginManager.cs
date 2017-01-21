@@ -17,6 +17,7 @@ public class VirginManager : MonoBehaviour {
 	public GameObject prefab;
 
 	public bool isEarthquake;
+	public float earthquakeCooldown = -1;
 
 	private void Awake() {
 		instance = this;
@@ -31,10 +32,15 @@ public class VirginManager : MonoBehaviour {
 
 	private void Update() {
 		if (Input.GetKeyDown(KeyCode.Alpha6)) {
-			EarthquakeBegin(virginController[0].style);
+			PhoneCameraController.Instance.CallEarthquake();
 		}
-		if (Input.GetKeyDown(KeyCode.Alpha7)) {
-			EarthquakeEnd();
+
+		if (earthquakeCooldown > 0) {
+			earthquakeCooldown -= Time.deltaTime;
+
+			if (earthquakeCooldown < 0) {
+
+			}
 		}
 	}
 
@@ -46,6 +52,11 @@ public class VirginManager : MonoBehaviour {
 		}
 	}
 
+	public bool IsEarthquakeReady() {
+		Debug.Log(earthquakeCooldown < 0);
+		return earthquakeCooldown < 0;
+	}
+
 	public void EarthquakeBegin(Style style) {
 		isEarthquake = true;
 		for (int i = 0; i < virginCount; ++i) {
@@ -53,7 +64,18 @@ public class VirginManager : MonoBehaviour {
 		}
 		GameController.Instance.CameraEarthquake();
         AudioManager.Instance.playQuake();
+
+		StartCoroutine(DoEarthquake());
     }
+
+	public IEnumerator DoEarthquake() {
+		earthquakeCooldown = 2000;
+		Debug.Log("A");
+		yield return new WaitForSeconds(5);
+		Debug.Log("B");
+		EarthquakeEnd();
+		earthquakeCooldown = 15;
+	}
 
 	public void EarthquakeEnd() {
 		isEarthquake = false;
