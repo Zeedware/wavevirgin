@@ -99,8 +99,24 @@ public class VirginController : MonoBehaviour {
 			isDraggedBegin = true;
 			mousePosition = Input.mousePosition;
 			mousePosition.z = virginTransform.position.z + 10;
-			//mouseBeginPosition = Input.mousePosition;
-		}
+            //mouseBeginPosition = Input.mousePosition;
+            if (style.styleClass == 0)
+            {
+                AudioManager.Instance.playSfx("cewekbuang");
+            }
+            else if (style.styleClass == 1)
+            {
+                AudioManager.Instance.playSfx("priabuang");
+            }
+            else if (style.styleClass == 2)
+            {
+                AudioManager.Instance.playSfx("ombuang");
+            }
+            else if (style.styleClass == 3)
+            {
+                AudioManager.Instance.playSfx("tantebuang");
+            }
+        }
 	}
 
 	public void OnDrag(BaseEventData data) {
@@ -121,22 +137,7 @@ public class VirginController : MonoBehaviour {
 			Vector3 newMousePosition = Input.mousePosition - mousePosition;
 			virginRigidbody.AddForce (new Vector2 (newMousePosition.x * forceAmount, newMousePosition.y*forceAmount), ForceMode2D.Force);
 
-            if (style.styleClass == 0)
-            {
-                AudioManager.Instance.playSfx("cewekbuang");
-            }
-            else if (style.styleClass == 1)
-            {
-                AudioManager.Instance.playSfx("priabuang");
-            }
-            else if (style.styleClass == 2)
-            {
-                AudioManager.Instance.playSfx("ombuang");
-            }
-            else if (style.styleClass == 3)
-            {
-                AudioManager.Instance.playSfx("tantebuang");
-            }
+            
         }
 	}
 
