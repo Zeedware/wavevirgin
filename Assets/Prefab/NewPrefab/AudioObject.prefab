@@ -27,7 +27,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &1756733732208866
 GameObject:
   m_ObjectHideFlags: 0
@@ -38,12 +38,12 @@ GameObject:
   - 4: {fileID: 4253753020903460}
   - 82: {fileID: 82866741327220600}
   m_Layer: 0
-  m_Name: 
+  m_Name: Earthquake
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &1915816368748600
 GameObject:
   m_ObjectHideFlags: 0
@@ -54,12 +54,12 @@ GameObject:
   - 4: {fileID: 4252002112774704}
   - 82: {fileID: 82194986319065216}
   m_Layer: 0
-  m_Name: 
+  m_Name: Crowd
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &4252002112774704
 Transform:
   m_ObjectHideFlags: 1
