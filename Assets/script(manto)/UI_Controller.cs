@@ -23,8 +23,9 @@ public class UI_Controller : MonoBehaviour {
 		playButton.onClick.AddListener (GotoGamePlay);
 		playButton.onClick.AddListener (GotoGamePlay);
 		playAgainButton.onClick.AddListener (GotoGamePlay);
-
 		quitButton.onClick.AddListener (Quit);
+
+		GotoMainMenu ();
 	}
 	void Update()
 	{

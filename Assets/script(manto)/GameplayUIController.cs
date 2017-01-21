@@ -41,7 +41,7 @@ public class GameplayUIController : MonoBehaviour {
 	void GameEvent_onAddScoreE (int score)
 	{
 		currentScore += score;
-		scoreText.text += "\n" + currentScore.ToString ();
+		scoreText.text = currentScore.ToString ();
 		resultScoreText.text = currentScore.ToString ();
 	}
 
@@ -50,30 +50,35 @@ public class GameplayUIController : MonoBehaviour {
 		if (Input.GetKeyDown (KeyCode.A)) {
 			GameEvent.OnAddScore (1);
 			GameEvent.OnTouchPeople (true);
-			StartCoroutine (PlayParticle (true));
+			GameEvent_onTouchPeopleE (true);
 		}
 
 		if (Input.GetKeyDown (KeyCode.Z)) {
 			GameEvent.OnTouchPeople (false);
-			StartCoroutine (PlayParticle (false));
+			GameEvent_onTouchPeopleE (false);
 		}
 	}
 
 	void GameEvent_onTouchPeopleE (bool isRight)
 	{
+		if (gameObject.activeInHierarchy) {
 		StartCoroutine (PlayParticle (isRight));
 		Debug.Log ("play particle");
+		}
 
 	}
 	IEnumerator PlayParticle(bool isRight)
 	{
 		Vector3 particlePosition = Camera.main.ScreenToWorldPoint (Input.mousePosition);
-		ParticleSystem particle = particlePool.GetAvailableParticle(isRight);
+		ParticleSystem particle = particlePool.GetAvailableParticle (isRight);
 		particle.gameObject.transform.position = new Vector3 (particlePosition.x, particlePosition.y, particleContainer.transform.position.z);
 		particle.gameObject.SetActive (true);
-		particle.Play ();
-		yield return new WaitForSeconds (1);
-		particle.Stop ();
-		particle.gameObject.SetActive (false);
+			particle.Play ();
+			yield return new WaitForSeconds (1);
+			particle.Stop ();
+			particle.gameObject.SetActive (false);
+		yield return null;
+
+
 	}
 }
