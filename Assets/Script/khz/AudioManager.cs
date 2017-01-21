@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class AudioManager : MonoBehaviour {
     AudioSource source;
-
     
+
 
     public AudioClip cewekCorrect1;
     public AudioClip cewekCorrect2;
@@ -32,9 +32,20 @@ public class AudioManager : MonoBehaviour {
 
     public AudioClip tanteBuang1;
     // Use this for initialization
+
+    private static AudioManager instance;
+
+    public static AudioManager Instance
+    {
+        get
+        {
+            return instance;
+        }
+    }
+
     void Awake()
     {
-
+        instance = this;
         source = GetComponent<AudioSource>();
 
     }

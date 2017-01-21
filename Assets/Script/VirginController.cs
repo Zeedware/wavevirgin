@@ -4,6 +4,8 @@ using System.Collections;
 
 public class VirginController : MonoBehaviour {
 
+    AudioManager audioManager;
+
 	public const float maxArea = 13f;
 	public const float maxSpeed = 2f;
 	public const float minSpeed = 0.75f;
@@ -116,7 +118,24 @@ public class VirginController : MonoBehaviour {
 			Vector3 newMousePosition = Input.mousePosition - mousePosition;
 //			Debug.Log ("new delta mouse position : " + newMousePosition);
 			virginRigidbody.AddForce (new Vector2 (newMousePosition.x * forceAmount, newMousePosition.y*forceAmount), ForceMode2D.Force);
-		}
+
+            if (style.styleClass == 0)
+            {
+                AudioManager.Instance.playSfx("cewekbuang");
+            }
+            else if (style.styleClass == 1)
+            {
+                AudioManager.Instance.playSfx("priabuang");
+            }
+            else if (style.styleClass == 2)
+            {
+                AudioManager.Instance.playSfx("ombuang");
+            }
+            else if (style.styleClass == 3)
+            {
+                AudioManager.Instance.playSfx("tantebuang");
+            }
+        }
 	}
 
 	public void OnPointerClick(BaseEventData data) {
@@ -134,11 +153,35 @@ public class VirginController : MonoBehaviour {
 
 	public void OnCorrect() {
 		virginAnimator.SetTrigger("Correct");
+        if (style.styleClass==0)
+        {
+            AudioManager.Instance.playSfx("cewekcorrect");
+        }else if (style.styleClass == 1)
+        {
+            AudioManager.Instance.playSfx("priacorrect");
+        }
+        
 	}
 
 	public void OnWrong() {
 		virginAnimator.SetTrigger("Wrong");
-	}
+        if (style.styleClass == 0)
+        {
+            AudioManager.Instance.playSfx("cewekwrong");
+        }
+        else if (style.styleClass == 1)
+        {
+            AudioManager.Instance.playSfx("priawrong");
+        }
+        else if (style.styleClass == 2)
+        {
+            AudioManager.Instance.playSfx("omwrong");
+        }
+        else if (style.styleClass == 3)
+        {
+            AudioManager.Instance.playSfx("tantewrong");
+        }
+    }
 
 	public void OnCorrectAnimation() {
 		virginAnimator.speed = 1;
