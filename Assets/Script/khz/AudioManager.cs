@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class AudioManager : MonoBehaviour {
     AudioSource source;
+    public AudioSource quakeSource;
     
     public AudioClip cewekCorrect1;
     public AudioClip cewekCorrect2;
@@ -96,6 +97,9 @@ public class AudioManager : MonoBehaviour {
         else if (input.Equals("tantebuang"))
         {
             playTanteBuang();
+        }else if (input.Equals("quake"))
+        {
+            playQuake();
         }
 
     }
@@ -219,5 +223,14 @@ public class AudioManager : MonoBehaviour {
                 playSound(tanteBuang1);
                 break;
         }
+    }
+
+    public void playQuake()
+    {
+        quakeSource.Play();
+    }
+    public void stopQuake()
+    {
+        quakeSource.Stop();
     }
 }

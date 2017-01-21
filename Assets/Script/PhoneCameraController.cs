@@ -27,18 +27,28 @@ public class PhoneCameraController : MonoBehaviour {
 	}
 
 	public void SwipeLeft() {
+		Style targetStyle = virginPhoto[0].virginController.style;
 		for (int i = 0; i < virginPhoto.Length; ++i) {
 			virginPhoto[i].TriggerSwipeLeft();
+			if (virginPhoto[i].photoID == 0) {
+				targetStyle = virginPhoto[i].virginController.style;
+			} 
 		}
 
+		VirginManager.Instance.EarthquakeUpdate(targetStyle);
 		PhoneController.Instance.SwipeLeftAnimation();
 	}
 
 	public void SwipeRight() {
+		Style targetStyle = virginPhoto[0].virginController.style;
 		for (int i = 0; i < virginPhoto.Length; ++i) {
 			virginPhoto[i].TriggerSwipeRight();
+			if (virginPhoto[i].photoID == 0) {
+				targetStyle = virginPhoto[i].virginController.style;
+			} 
 		}
 
+		VirginManager.Instance.EarthquakeUpdate(targetStyle);
 		PhoneController.Instance.SwipeRightAnimation();
 	}
 
