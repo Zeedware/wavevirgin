@@ -19,8 +19,8 @@ public class UI_Controller : MonoBehaviour {
 	void Start()
 	{
 		
-		playButton.onClick.AddListener (GotoMainMenu);
 		mainMenuButton.onClick.AddListener (GotoMainMenu);
+		playButton.onClick.AddListener (GotoGamePlay);
 		playButton.onClick.AddListener (GotoGamePlay);
 		playAgainButton.onClick.AddListener (GotoGamePlay);
 
@@ -61,14 +61,14 @@ public class UI_Controller : MonoBehaviour {
 			gameOver.SetActive (false);
 			break;
 		case VIEW_STATE.GAMEPLAY:
-			mainMenu.SetActive (true);
-			gamePlay.SetActive (false);
+			mainMenu.SetActive (false);
+			gamePlay.SetActive (true);
 			gameOver.SetActive (false);
 			break;
 		case VIEW_STATE.GAMEOVER:
-			mainMenu.SetActive (true);
+			mainMenu.SetActive (false);
 			gamePlay.SetActive (false);
-			gameOver.SetActive (false);
+			gameOver.SetActive (true);
 			break;
 			
 		}

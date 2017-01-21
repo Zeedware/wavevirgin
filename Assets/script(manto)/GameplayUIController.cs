@@ -7,7 +7,6 @@ public class GameplayUIController : MonoBehaviour {
 	public Text scoreText, resultScoreText;
 	public int currentScore;
 	public GameObject particleContainer;
-	public ParticleSystem touchParticle_Right, touchParticle_False;
 	public Button skill_earthShake;
 	public ParticlePool particlePool;
 
