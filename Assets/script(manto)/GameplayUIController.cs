@@ -33,7 +33,7 @@ public class GameplayUIController : MonoBehaviour {
 		currentScore = 0;
 		GameEvent_onAddScoreE (0);
 	}
-	void GameEvent_onEarthShakeE ()
+	public void GameEvent_onEarthShakeE ()
 	{
 		Debug.Log ("SKILL EARTH SHAKE");
 		virginManager.EarthquakeBegin (PhoneCameraController.Instance.virginPhoto [1].virginController.style);
