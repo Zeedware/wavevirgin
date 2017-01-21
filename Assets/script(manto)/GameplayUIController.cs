@@ -9,6 +9,7 @@ public class GameplayUIController : MonoBehaviour {
 	public GameObject particleContainer;
 	public ParticleSystem touchParticle_Right, touchParticle_False;
 	public Button skill_earthShake;
+	public ParticlePool particlePool;
 
 	void OnEnable()
 	{
@@ -64,13 +65,7 @@ public class GameplayUIController : MonoBehaviour {
 		Vector3 particlePosition = Camera.main.ScreenToWorldPoint (Input.mousePosition);
 		particleContainer.transform.position = new Vector3 (particlePosition.x, particlePosition.y, particleContainer.transform.position.z);
 		particleContainer.SetActive (true);
-		ParticleSystem particle;
-
-		if (isRight)
-			particle = touchParticle_Right;
-		else
-			particle = touchParticle_False;
-
+		ParticleSystem particle = particlePool.GetAvailableParticle(isRight);
 		particle.Play ();
 		yield return new WaitForSeconds (1);
 		particle.Stop ();
