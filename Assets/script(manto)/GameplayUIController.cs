@@ -61,7 +61,7 @@ public class GameplayUIController : MonoBehaviour {
 
 	void GameEvent_onTouchPeopleE (bool isRight)
 	{
-		while (gameObject.activeInHierarchy) {
+		if (gameObject.activeInHierarchy) {
 		StartCoroutine (PlayParticle (isRight));
 		Debug.Log ("play particle");
 		}
