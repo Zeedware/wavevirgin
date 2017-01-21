@@ -154,7 +154,6 @@ public class VirginController : MonoBehaviour {
 
 	public void OnCorrect() {
 		virginAnimator.SetTrigger("Correct");
-<<<<<<< Updated upstream
         if (style.styleClass==0)
         {
             AudioManager.Instance.playSfx("cewekcorrect");
@@ -163,14 +162,11 @@ public class VirginController : MonoBehaviour {
             AudioManager.Instance.playSfx("priacorrect");
         }
         
-=======
 		PhoneCameraController.Instance.SwipeLeft();
->>>>>>> Stashed changes
 	}
 
 	public void OnWrong() {
 		virginAnimator.SetTrigger("Wrong");
-<<<<<<< Updated upstream
         if (style.styleClass == 0)
         {
             AudioManager.Instance.playSfx("cewekwrong");
@@ -187,11 +183,8 @@ public class VirginController : MonoBehaviour {
         {
             AudioManager.Instance.playSfx("tantewrong");
         }
-    }
-=======
 		PhoneCameraController.Instance.SwipeRight();
 	}
->>>>>>> Stashed changes
 
 	public void OnCorrectAnimation() {
 		virginAnimator.speed = 1;
