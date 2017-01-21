@@ -16,6 +16,7 @@ public class VirginController : MonoBehaviour {
 
 	public VirginManager virginManager;
 	public float virginSpeed;
+	public Animator virginAnimator;
 	public Transform virginTransform;
 	public Rigidbody2D virginRigidbody;
 	public Transform styleTransform;
@@ -53,19 +54,25 @@ public class VirginController : MonoBehaviour {
 	public void SpawnInitial() {
 		bool isEdgeLeft = Random.Range(0, 2) == 0;
 		styleTransform.localScale = new Vector3((isEdgeLeft ? -1 : 1), 1, 1);
+		virginTransform.localEulerAngles = Vector3.zero;
 
 		virginTransform.position = new Vector3 (Random.Range(-maxArea, maxArea), -2.79851f, Random.Range(0, 2f));
 		virginRigidbody.velocity = new Vector2 (Random.Range(0, maxSpeed) * (isEdgeLeft ? 1 : -1), 0);
 		style.RandomizeStyle();
+
+		virginAnimator.speed = Random.Range(0.25f, 0.75f);
+		virginAnimator.SetTrigger("Walk");
 	}
 
 	public void SpawnEdge() {
 		bool isEdgeLeft = Random.Range(0, 2) == 0;
 		styleTransform.localScale = new Vector3((isEdgeLeft ? -1 : 1), 1, 1);
+		virginTransform.localEulerAngles = Vector3.zero;
 
 		virginRigidbody.velocity = new Vector2(Random.Range(minSpeed, maxSpeed) * (isEdgeLeft ? 1 : -1), 0);
 		virginTransform.position = edgePosition[isEdgeLeft ? 0 : 1] + new Vector2(Random.Range(-1f, 1f), 0);
 		style.RandomizeStyle();
+		virginAnimator.speed = Random.Range(0.25f, 0.75f);
 	}
 
 	public void Update() {
@@ -81,16 +88,17 @@ public class VirginController : MonoBehaviour {
 	}
 
 	public void OnBeginDrag(BaseEventData data) {
-		if (!isPhoto) {
+		if (!isPhoto && EventSystem.current.IsPointerOverGameObject()) {
 			isDraggedBegin = true;
 			mousePosition = Input.mousePosition;
 			mousePosition.z = virginTransform.position.z + 10;
+			mouseBeginPosition = Input.mousePosition;
 		}
 	}
 
 	public void OnDrag(BaseEventData data) {
-		if (!isPhoto) {
-			if (isDraggedBegin && (mouseBeginPosition - Input.mousePosition).sqrMagnitude > 10) {
+		if (!isPhoto && EventSystem.current.IsPointerOverGameObject()) {
+			if (isDraggedBegin && (mouseBeginPosition - Input.mousePosition).sqrMagnitude > 10f) {
 				isDraggedBegin = false;
 				isDragged = true;
 				virginRigidbody.velocity = Vector3.zero;
@@ -101,7 +109,7 @@ public class VirginController : MonoBehaviour {
 	}
 
 	public void OnEndDrag(BaseEventData data) {
-		if (!isPhoto) {
+		if (!isPhoto && EventSystem.current.IsPointerOverGameObject()) {
 			isDragged = false;
 //			Debug.Log ("mouse position : " + mousePosition);
 //			Debug.Log ("new mouse position : " + Input.mousePosition);
@@ -112,10 +120,33 @@ public class VirginController : MonoBehaviour {
 	}
 
 	public void OnPointerClick(BaseEventData data) {
-		if (!isPhoto) {
+		if (!isPhoto && EventSystem.current.IsPointerOverGameObject()) {
 			if (!isDragged) {
-				Debug.Log(GameController.Instance.IsRight(style));
+				if (GameController.Instance.IsRight(style)) {
+					OnCorrect();
+
+				} else {
+					OnWrong();
+				}
 			}
 		}
+	}
+
+	public void OnCorrect() {
+		virginAnimator.SetTrigger("Correct");
+	}
+
+	public void OnWrong() {
+		virginAnimator.SetTrigger("Wrong");
+	}
+
+	public void OnCorrectAnimation() {
+		virginAnimator.speed = 1;
+		SpawnEdge();
+	}
+
+	public void OnWrongAnimation() {
+		virginAnimator.speed = 1;
+		SpawnEdge();
 	}
 }
