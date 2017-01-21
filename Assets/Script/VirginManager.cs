@@ -22,7 +22,7 @@ public class VirginManager : MonoBehaviour {
 		instance = this;
 		Transform virginManagerTransform = transform;
 		virginController = new VirginController[virginCount];
-
+		virginCounter = -100;
 		for (int i = 0; i < virginCount; ++i) {
 			virginController[i] = ((GameObject) GameObject.Instantiate(prefab, virginManagerTransform)).GetComponent<VirginController>();
 			virginController[i].Init(this);
