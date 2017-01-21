@@ -16,8 +16,17 @@ public class GameController : MonoBehaviour {
 	}
 
 	public PhoneCameraController phoneCameraController;
+	public Animator cameraAnimator;
 
 	public bool IsRight(Style style) {
 		return phoneCameraController.IsRight(style);
+	}
+
+	public void CameraIdle() {
+		cameraAnimator.SetTrigger("Idle");
+	}
+
+	public void CameraEarthquake() {
+		cameraAnimator.SetTrigger("Earthquake");
 	}
 }

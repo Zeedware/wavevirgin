@@ -27,10 +27,10 @@ public class PhoneCameraController : MonoBehaviour {
 	}
 
 	public void SwipeLeft() {
-		Style targetStyle = virginPhoto[0].virginController.style;
+		Style targetStyle = virginPhoto[1].virginController.style;
 		for (int i = 0; i < virginPhoto.Length; ++i) {
 			virginPhoto[i].TriggerSwipeLeft();
-			if (virginPhoto[i].photoID == 0) {
+			if (virginPhoto[i].photoID == 1) {
 				targetStyle = virginPhoto[i].virginController.style;
 			} 
 		}
@@ -40,10 +40,10 @@ public class PhoneCameraController : MonoBehaviour {
 	}
 
 	public void SwipeRight() {
-		Style targetStyle = virginPhoto[0].virginController.style;
+		Style targetStyle = virginPhoto[1].virginController.style;
 		for (int i = 0; i < virginPhoto.Length; ++i) {
 			virginPhoto[i].TriggerSwipeRight();
-			if (virginPhoto[i].photoID == 0) {
+			if (virginPhoto[i].photoID == 1) {
 				targetStyle = virginPhoto[i].virginController.style;
 			} 
 		}
