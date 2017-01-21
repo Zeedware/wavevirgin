@@ -11,11 +11,11 @@ public class GameController : MonoBehaviour {
 		}
 	}
 
-	public PhoneCameraController phoneCameraController;
-
 	private void Awake() {
 		instance = this;
 	}
+
+	public PhoneCameraController phoneCameraController;
 
 	public bool IsRight(Style style) {
 		return phoneCameraController.IsRight(style);

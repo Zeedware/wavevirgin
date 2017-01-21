@@ -4,8 +4,22 @@ using System.Collections;
 
 public class PhoneController : MonoBehaviour {
 
+	private static PhoneController instance;
+
+	public static PhoneController Instance {
+		get {
+			return instance;
+		}
+	}
+
+	private void Awake() {
+		instance = this;
+		phoneTransform = transform;
+	}
+
 	private const float HIDE_TIME = 1f / 0.25f;
 
+	public Animator phoneAnimator;
 	public Vector3 showPosition;
 	public Vector3 hidePosition;
 	private Transform phoneTransform;
@@ -21,26 +35,13 @@ public class PhoneController : MonoBehaviour {
 
 	public Vector3 mouseBeginPosition;
 
-	private void Awake() {
-		phoneTransform = transform;
-	}
-
-	private void Update() {
-		if (Input.GetKeyDown(KeyCode.Alpha2)) {
-			TriggerShowPhone();
-		}
-		if (Input.GetKeyDown(KeyCode.Alpha3)) {
-			TriggerHidePhone();
-		}
-	}
-
 	public void OnBeginDrag(BaseEventData data) {
 		isDraggedBegin = true;
 		mouseBeginPosition = Input.mousePosition;
 	}
 
 	public void OnDrag(BaseEventData data) {
-		if (isDraggedBegin && (mouseBeginPosition - Input.mousePosition).sqrMagnitude > 10f) {
+		if (isDraggedBegin && (-Input.mousePosition).sqrMagnitude > 10f) {
 			isDraggedBegin = false;
 			isDragged = true;
 		} 
@@ -65,6 +66,18 @@ public class PhoneController : MonoBehaviour {
 				TriggerShowPhone();
 			}
 		}
+	}
+
+	public void SwipeLeftAnimation() {
+		phoneAnimator.SetTrigger("SwipeLeft");
+	}
+
+	public void SwipeRightAnimation() {
+		phoneAnimator.SetTrigger("SwipeRight");
+	}
+
+	public void IdleAnimation() {
+		phoneAnimator.SetTrigger("Idle");
 	}
 
 	public void TriggerShowPhone() {

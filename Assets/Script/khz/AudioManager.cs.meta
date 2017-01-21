@@ -1,10 +1,25 @@
 fileFormatVersion: 2
 guid: bc15bd6d68a33fb4e9ec62cd88eae0e5
-timeCreated: 1484964346
+timeCreated: 1484971733
 licenseType: Free
 MonoImporter:
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - cewekCorrect1: {fileID: 8300000, guid: 98fb0f7cb3bd64049bada975191a0817, type: 3}
+  - cewekCorrect2: {fileID: 8300000, guid: 6ccf5fa3a62fe2448a47218529c7a408, type: 3}
+  - cewekCorrect3: {fileID: 8300000, guid: b07dd40c53aee644eaa0028cf1a418c6, type: 3}
+  - cewekCorrect4: {fileID: 8300000, guid: 128f84fef1c6a8e4487e285be237edb6, type: 3}
+  - cewekCorrect5: {fileID: 8300000, guid: 4cbb8b77999327f4fbb103d358f7cec9, type: 3}
+  - cewekWrong1: {fileID: 8300000, guid: b6114cdcda676e848a4471849fc19c40, type: 3}
+  - cewekBuang1: {fileID: 8300000, guid: b6114cdcda676e848a4471849fc19c40, type: 3}
+  - priaCorrect1: {fileID: 8300000, guid: 5dc8c8f1d6c0cfd44988f1c3da24e75f, type: 3}
+  - priaCorrect2: {fileID: 8300000, guid: e02e4b95403007648b959b95d20f245a, type: 3}
+  - priaWrong1: {fileID: 8300000, guid: 753c1f6f1cf6a3644a916566d5852ac4, type: 3}
+  - priaBuang1: {fileID: 8300000, guid: 753c1f6f1cf6a3644a916566d5852ac4, type: 3}
+  - omWrong1: {fileID: 8300000, guid: 5853fb3eb101bb44ea95372d7732bd20, type: 3}
+  - omBuang1: {fileID: 8300000, guid: ba8d5e688dd1b1b49b7d44d2cff1420f, type: 3}
+  - tanteWrong1: {fileID: 8300000, guid: 4cbb8b77999327f4fbb103d358f7cec9, type: 3}
+  - tanteBuang1: {fileID: 8300000, guid: 4cbb8b77999327f4fbb103d358f7cec9, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

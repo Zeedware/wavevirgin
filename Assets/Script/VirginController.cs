@@ -4,14 +4,16 @@ using System.Collections;
 
 public class VirginController : MonoBehaviour {
 
+    AudioManager audioManager;
+
 	public const float maxArea = 13f;
 	public const float maxSpeed = 2f;
 	public const float minSpeed = 0.75f;
 	public bool isPhoto;
 
 	private Vector2[] edgePosition = new Vector2[] {
-		new Vector2(-maxArea, -2.448951f),
-		new Vector2(maxArea, -2.448951f),
+		new Vector2(-maxArea, -3.073636f),
+		new Vector2(maxArea, -3.073636f),
 	};
 
 	public VirginManager virginManager;
@@ -28,7 +30,6 @@ public class VirginController : MonoBehaviour {
 	public Vector3 mousePosition;
 
 	public float forceAmount;
-	bool isSelected = false;
 
 	public void Awake() {
 		if (isPhoto) {
@@ -41,6 +42,7 @@ public class VirginController : MonoBehaviour {
 	}
 
 	public bool IsRight(Style style) {
+		Debug.Log("Clicked: " + style.styleType + " Target: " + this.style.styleType);
 		return this.style == style;
 	}
 
@@ -53,8 +55,6 @@ public class VirginController : MonoBehaviour {
 	}
 
 	public void SpawnInitial() {
-		isSelected = false;
-
 		bool isEdgeLeft = Random.Range(0, 2) == 0;
 		styleTransform.localScale = new Vector3((isEdgeLeft ? -1 : 1), 1, 1);
 		virginTransform.localEulerAngles = Vector3.zero;
@@ -68,8 +68,6 @@ public class VirginController : MonoBehaviour {
 	}
 
 	public void SpawnEdge() {
-		isSelected = false;
-
 		bool isEdgeLeft = Random.Range(0, 2) == 0;
 		styleTransform.localScale = new Vector3((isEdgeLeft ? -1 : 1), 1, 1);
 		virginTransform.localEulerAngles = Vector3.zero;
@@ -97,7 +95,7 @@ public class VirginController : MonoBehaviour {
 			isDraggedBegin = true;
 			mousePosition = Input.mousePosition;
 			mousePosition.z = virginTransform.position.z + 10;
-			mouseBeginPosition = Input.mousePosition;
+			//mouseBeginPosition = Input.mousePosition;
 		}
 	}
 
@@ -121,13 +119,29 @@ public class VirginController : MonoBehaviour {
 			Vector3 newMousePosition = Input.mousePosition - mousePosition;
 //			Debug.Log ("new delta mouse position : " + newMousePosition);
 			virginRigidbody.AddForce (new Vector2 (newMousePosition.x * forceAmount, newMousePosition.y*forceAmount), ForceMode2D.Force);
-		}
+
+            if (style.styleClass == 0)
+            {
+                AudioManager.Instance.playSfx("cewekbuang");
+            }
+            else if (style.styleClass == 1)
+            {
+                AudioManager.Instance.playSfx("priabuang");
+            }
+            else if (style.styleClass == 2)
+            {
+                AudioManager.Instance.playSfx("ombuang");
+            }
+            else if (style.styleClass == 3)
+            {
+                AudioManager.Instance.playSfx("tantebuang");
+            }
+        }
 	}
 
 	public void OnPointerClick(BaseEventData data) {
-		if (!isPhoto && EventSystem.current.IsPointerOverGameObject() && !isSelected) {
+		if (!isPhoto && EventSystem.current.IsPointerOverGameObject()) {
 			if (!isDragged) {
-				isSelected = true;
 				if (GameController.Instance.IsRight(style)) {
 					OnCorrect();
 
@@ -139,17 +153,45 @@ public class VirginController : MonoBehaviour {
 	}
 
 	public void OnCorrect() {
-		Debug.Log ("OnCOrrect");
 		virginAnimator.SetTrigger("Correct");
-		GameEvent.OnTouchPeople (true);
-
+<<<<<<< Updated upstream
+        if (style.styleClass==0)
+        {
+            AudioManager.Instance.playSfx("cewekcorrect");
+        }else if (style.styleClass == 1)
+        {
+            AudioManager.Instance.playSfx("priacorrect");
+        }
+        
+=======
+		PhoneCameraController.Instance.SwipeLeft();
+>>>>>>> Stashed changes
 	}
 
 	public void OnWrong() {
-		Debug.Log ("OnWrong");
 		virginAnimator.SetTrigger("Wrong");
-		GameEvent.OnTouchPeople (false);
+<<<<<<< Updated upstream
+        if (style.styleClass == 0)
+        {
+            AudioManager.Instance.playSfx("cewekwrong");
+        }
+        else if (style.styleClass == 1)
+        {
+            AudioManager.Instance.playSfx("priawrong");
+        }
+        else if (style.styleClass == 2)
+        {
+            AudioManager.Instance.playSfx("omwrong");
+        }
+        else if (style.styleClass == 3)
+        {
+            AudioManager.Instance.playSfx("tantewrong");
+        }
+    }
+=======
+		PhoneCameraController.Instance.SwipeRight();
 	}
+>>>>>>> Stashed changes
 
 	public void OnCorrectAnimation() {
 		virginAnimator.speed = 1;

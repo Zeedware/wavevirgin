@@ -7,7 +7,10 @@ public struct Style {
 	public const int maxStyle = 21;
 
 	public int styleType;
-	public GameObject[] styleGameObject;
+    public int styleClass;
+    public enum classType { cewek=0, pria=1, om=2, tante=3 };
+
+    public GameObject[] styleGameObject;
 
 	public GameObject[] normalGameObject;
 	public GameObject[] activeGameObject;
@@ -45,10 +48,33 @@ public struct Style {
 		}
 	}
 
+    private void setStyleClass(int input)
+    {
+        if (input <= 9)
+        {
+            styleClass = 0;
+
+        }
+        else if (input <= 14)
+        {
+            styleClass = 1;
+        }
+        else if (input <= 17)
+        {
+            styleClass = 2;
+        }
+        else if (input <= maxStyle)
+        {
+            styleClass = 3;
+        }
+    }
+
 	public void RandomizeStyle() {
 		styleType = Random.Range(0, maxStyle);
 
-		for (int i = 0; i < maxStyle; ++i) {
+        setStyleClass(styleType);
+
+        for (int i = 0; i < maxStyle; ++i) {
 			styleGameObject[i].SetActive(i == styleType);
 
 			normalGameObject[i].SetActive(i == styleType);
@@ -60,7 +86,9 @@ public struct Style {
 	public void RandomizePhoto() {
 		styleType = Random.Range(0, maxStyle);
 
-		for (int i = 0; i < maxStyle; ++i) {
+        setStyleClass(styleType);
+
+        for (int i = 0; i < maxStyle; ++i) {
 			styleGameObject[i].SetActive(i == styleType);
 
 			normalGameObject[i].SetActive(false);

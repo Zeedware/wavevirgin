@@ -3,6 +3,18 @@ using System.Collections;
 
 public class PhoneCameraController : MonoBehaviour {
 
+	private static PhoneCameraController instance;
+
+	public static PhoneCameraController Instance {
+		get {
+			return instance;
+		}
+	}
+
+	private void Awake() {
+		instance = this;
+	}
+
 	public VirginPhoto[] virginPhoto;
 
 	private void Update() {
@@ -18,12 +30,16 @@ public class PhoneCameraController : MonoBehaviour {
 		for (int i = 0; i < virginPhoto.Length; ++i) {
 			virginPhoto[i].TriggerSwipeLeft();
 		}
+
+		PhoneController.Instance.SwipeLeftAnimation();
 	}
 
 	public void SwipeRight() {
 		for (int i = 0; i < virginPhoto.Length; ++i) {
 			virginPhoto[i].TriggerSwipeRight();
 		}
+
+		PhoneController.Instance.SwipeRightAnimation();
 	}
 
 	public bool IsRight(Style style) {
