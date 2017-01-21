@@ -58,7 +58,6 @@ public class PhoneController : MonoBehaviour {
 	}
 
 	private void Update() {
-
 		if (Input.GetKeyDown(KeyCode.Alpha2)) {
 			TriggerShowPhone();
 		}

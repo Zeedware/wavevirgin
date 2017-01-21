@@ -28,10 +28,15 @@ public class VirginController : MonoBehaviour {
 
 	public Vector3 mouseBeginPosition;
 	public Vector3 mousePosition;
+	private Vector3 oldVelocity;
 
 	public float forceAmount;
 
-	public void Awake() {
+	public void Init(VirginManager virginManager) {
+		this.virginManager = virginManager;
+	}
+
+	public void Start() {
 		if (isPhoto) {
 			style.InitPhoto();
 
@@ -151,7 +156,6 @@ public class VirginController : MonoBehaviour {
 
 	public void OnCorrect() {
 		virginAnimator.SetTrigger("Correct");
-//<<<<<<< Updated upstream
         if (style.styleClass==0)
         {
             AudioManager.Instance.playSfx("cewekcorrect");
@@ -160,14 +164,12 @@ public class VirginController : MonoBehaviour {
             AudioManager.Instance.playSfx("priacorrect");
         }
         
-//=======
-//		PhoneCameraController.Instance.SwipeLeft();
-//>>>>>>> Stashed changes
+		PhoneCameraController.Instance.SwipeLeft();
+		GameEvent.OnTouchPeople(true);
 	}
 
 	public void OnWrong() {
 		virginAnimator.SetTrigger("Wrong");
-//<<<<<<< Updated upstream
         if (style.styleClass == 0)
         {
             AudioManager.Instance.playSfx("cewekwrong");
@@ -184,11 +186,9 @@ public class VirginController : MonoBehaviour {
         {
             AudioManager.Instance.playSfx("tantewrong");
         }
-//    }
-//=======
 		PhoneCameraController.Instance.SwipeRight();
+		GameEvent.OnTouchPeople(false);
 	}
-//>>>>>>> Stashed changes
 
 	public void OnCorrectAnimation() {
 		virginAnimator.speed = 1;
@@ -198,5 +198,29 @@ public class VirginController : MonoBehaviour {
 	public void OnWrongAnimation() {
 		virginAnimator.speed = 1;
 		SpawnEdge();
+	}
+
+	public void TriggerInitialEarthquake(Style style) {
+		oldVelocity = virginRigidbody.velocity;
+		virginRigidbody.velocity = Vector3.zero;
+		TriggerEarthquake(style);
+	}
+
+	public void TriggerEarthquake(Style style) {
+		if (style == this.style) {
+			virginAnimator.SetTrigger("Survive");
+
+		} else {
+			virginAnimator.SetTrigger("Earthquake");
+		}
+	}
+
+	public void TriggerSurvive() {
+		virginAnimator.SetTrigger("Survive");
+	}
+
+	public void TriggerWalk() {
+		virginRigidbody.velocity = oldVelocity;
+		virginAnimator.SetTrigger("Walk");
 	}
 }
