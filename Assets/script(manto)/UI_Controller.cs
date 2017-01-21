@@ -26,7 +26,15 @@ public class UI_Controller : MonoBehaviour {
 
 		quitButton.onClick.AddListener (Quit);
 	}
-
+	void Update()
+	{
+		if (Input.GetKeyDown (KeyCode.G))
+			GotoMainMenu ();
+		if (Input.GetKeyDown (KeyCode.H))
+			GotoGamePlay ();
+		if (Input.GetKeyDown (KeyCode.I))
+			GotoGameOver ();
+	}
 	void GotoMainMenu()
 	{
 		GotoView (VIEW_STATE.MAIN_MENU);
@@ -34,6 +42,9 @@ public class UI_Controller : MonoBehaviour {
 	void GotoGamePlay()
 	{
 		GotoView (VIEW_STATE.GAMEPLAY);
+	}void GotoGameOver()
+	{
+		GotoView (VIEW_STATE.GAMEOVER);
 	}
 
 	void Quit()

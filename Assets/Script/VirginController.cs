@@ -77,6 +77,10 @@ public class VirginController : MonoBehaviour {
 			if (Input.GetKeyDown (KeyCode.F))
 				virginRigidbody.AddForce (new Vector2 (100, 0), ForceMode2D.Force);
 		}
+<<<<<<< HEAD
+=======
+			
+>>>>>>> origin/master
 	}
 
 	public void OnBeginDrag(BaseEventData data) {

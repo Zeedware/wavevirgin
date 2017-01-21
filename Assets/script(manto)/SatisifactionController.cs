@@ -27,9 +27,6 @@ public class SatisifactionController : MonoBehaviour {
 	void Update () {
 		satisfactionPoin -= Time.deltaTime * decreaseSpeed;
 		satisfactionMeter.value = satisfactionPoin/maxSatisfactionPoin;
-
-		if (Input.GetKeyDown (KeyCode.S))
-			SetSatisfactionMeter (maxSatisfactionPoin);
 	}
 
 	void RefreshSatisfactionMeter()
