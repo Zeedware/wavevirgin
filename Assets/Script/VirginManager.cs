@@ -7,6 +7,9 @@ public class VirginManager : MonoBehaviour {
 
 	public static VirginManager Instance {
 		get {
+			if (instance == null) {
+				instance = FindObjectOfType<VirginManager>();
+			}
 			return instance;
 		}
 	}
@@ -18,6 +21,8 @@ public class VirginManager : MonoBehaviour {
 
 	public bool isEarthquake;
 	public float earthquakeCooldown = -1;
+
+	public GameMode gameMode = GameMode.Normal;
 
 	private void Awake() {
 		instance = this;
@@ -31,8 +36,20 @@ public class VirginManager : MonoBehaviour {
 	}
 
 	private void Update() {
-		if (Input.GetKeyDown(KeyCode.Alpha6)) {
-			PhoneCameraController.Instance.CallEarthquake();
+		if (Input.GetKeyDown(KeyCode.P)) {
+			ChangeGameMode(GameMode.Normal);
+		}
+		if (Input.GetKeyDown(KeyCode.O)) {
+			ChangeGameMode(GameMode.Girl);
+		}
+		if (Input.GetKeyDown(KeyCode.I)) {
+			ChangeGameMode(GameMode.GirlBoy);
+		}
+		if (Input.GetKeyDown(KeyCode.U)) {
+			ChangeGameMode(GameMode.GirlBoyOldiesGoat);
+		}
+		if (Input.GetKeyDown(KeyCode.Y)) {
+			ChangeGameMode(GameMode.GirlBoyOldiesGoat);
 		}
 
 		if (earthquakeCooldown > 0) {
@@ -42,6 +59,15 @@ public class VirginManager : MonoBehaviour {
 
 			}
 		}
+	}
+
+	public void ChangeGameMode(GameMode gameMode) {
+		this.gameMode = gameMode;
+		for (int i = 0; i < virginCount; ++i) {
+			virginController[i].ChangeGameMode();
+		}
+
+		PhoneCameraController.Instance.RandomizePhoto();
 	}
 
 	public void EarthquakeUpdate(Style style) {

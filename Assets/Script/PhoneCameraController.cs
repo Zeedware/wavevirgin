@@ -17,6 +17,12 @@ public class PhoneCameraController : MonoBehaviour {
 
 	public VirginPhoto[] virginPhoto;
 
+	public void RandomizePhoto() {
+		for (int i = 0; i < virginPhoto.Length; ++i) {
+			virginPhoto[i].RandomizeTarget();
+		}
+	}
+
 	private void Update() {
 		if (Input.GetKeyDown(KeyCode.Alpha4)) {
 			SwipeLeft();
