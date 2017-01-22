@@ -987,7 +987,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1000010851900110
 GameObject:
   m_ObjectHideFlags: 1
@@ -1148,7 +1148,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &1000011001903700
 GameObject:
   m_ObjectHideFlags: 1
@@ -8026,6 +8026,7 @@ MonoBehaviour:
   isDraggedBegin: 0
   mouseBeginPosition: {x: 0, y: 0, z: 0}
   mousePosition: {x: 0, y: 0, z: 0}
+  virginCollider: {fileID: 0}
   isActive: 0
   forceAmount: 0
 --- !u!114 &114000010637297246
@@ -8161,6 +8162,7 @@ MonoBehaviour:
   isDraggedBegin: 0
   mouseBeginPosition: {x: 0, y: 0, z: 0}
   mousePosition: {x: 0, y: 0, z: 0}
+  virginCollider: {fileID: 0}
   isActive: 0
   forceAmount: 0
 --- !u!114 &114000012760950440
@@ -8292,6 +8294,7 @@ MonoBehaviour:
   isDraggedBegin: 0
   mouseBeginPosition: {x: 0, y: 0, z: 0}
   mousePosition: {x: 0, y: 0, z: 0}
+  virginCollider: {fileID: 0}
   isActive: 0
   forceAmount: 0
 --- !u!212 &212000010043972130

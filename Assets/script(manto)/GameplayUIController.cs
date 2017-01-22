@@ -35,7 +35,6 @@ public class GameplayUIController : MonoBehaviour {
 	}
 	public void GameEvent_onEarthShakeE ()
 	{
-		Debug.Log ("SKILL EARTH SHAKE");
 		PhoneCameraController.Instance.CallEarthquake();
 	}
 
@@ -54,7 +53,6 @@ public class GameplayUIController : MonoBehaviour {
 	void Update()
 	{
 		if (Input.GetKeyDown (KeyCode.A)) {
-			GameEvent.OnAddScore (1);
 			GameEvent.OnTouchPeople (true);
 			GameEvent_onTouchPeopleE (true);
 		}
@@ -67,11 +65,16 @@ public class GameplayUIController : MonoBehaviour {
 
 	void GameEvent_onTouchPeopleE (bool isRight)
 	{
+		if(isRight)
+			GameEvent.OnAddScore (1);
 		if (gameObject.activeInHierarchy) {
 			StartCoroutine (PlayParticle (isRight));
+			Debug.Log ("play particle");
 		}
-	}
 
+
+
+	}
 	IEnumerator PlayParticle(bool isRight)
 	{
 		Vector3 particlePosition = Camera.main.ScreenToWorldPoint (Input.mousePosition);

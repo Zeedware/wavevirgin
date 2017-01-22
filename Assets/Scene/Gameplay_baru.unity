@@ -134,12 +134,6 @@ Prefab:
       propertyPath: phoneCameraController
       value: 
       objectReference: {fileID: 1920524665}
-    - target: {fileID: 212000012495585926, guid: c0b4387bb011448a0a81b5e86d139bdf,
-        type: 2}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: d2c5850a7485e4b6d9a085b40d2e88f7,
-        type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c0b4387bb011448a0a81b5e86d139bdf, type: 2}
   m_IsPrefabParent: 0
