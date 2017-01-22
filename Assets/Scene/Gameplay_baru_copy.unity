@@ -154,6 +154,7 @@ GameObject:
   - component: {fileID: 11868910}
   - component: {fileID: 11868912}
   - component: {fileID: 11868911}
+  - component: {fileID: 11868913}
   m_Layer: 5
   m_Name: Title
   m_TagString: Untagged
@@ -215,6 +216,18 @@ CanvasRenderer:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 11868909}
+--- !u!114 &11868913
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 11868909}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1200242548, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ShowMaskGraphic: 1
 --- !u!1 &72100065
 GameObject:
   m_ObjectHideFlags: 0
@@ -4996,6 +5009,7 @@ GameObject:
   - component: {fileID: 1366864607}
   - component: {fileID: 1366864609}
   - component: {fileID: 1366864608}
+  - component: {fileID: 1366864610}
   m_Layer: 5
   m_Name: Panel
   m_TagString: Untagged
@@ -5060,6 +5074,23 @@ CanvasRenderer:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1366864606}
+--- !u!95 &1366864610
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1366864606}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 3e4f7f9cca3a14580acceb7283e4bee4, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!1 &1425948027
 GameObject:
   m_ObjectHideFlags: 0
@@ -5150,8 +5181,8 @@ GameObject:
   - component: {fileID: 1488890877}
   - component: {fileID: 1488890874}
   - component: {fileID: 1488890873}
-  - component: {fileID: 1488890876}
   - component: {fileID: 1488890875}
+  - component: {fileID: 1488890876}
   m_Layer: 5
   m_Name: Quit
   m_TagString: Untagged
@@ -5252,24 +5283,17 @@ MonoBehaviour:
   m_ChildForceExpandHeight: 1
   m_ChildControlWidth: 0
   m_ChildControlHeight: 0
---- !u!95 &1488890876
-Animator:
-  serializedVersion: 3
+--- !u!225 &1488890876
+CanvasGroup:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 95000012388545166, guid: 76fc48b2bea5efe46b1d48e03ada9d94,
-    type: 2}
+  m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1488890872}
   m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: c7883ed02f24c4739beebb676740fb7a, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!222 &1488890877
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -6133,8 +6157,8 @@ GameObject:
   - component: {fileID: 1955542789}
   - component: {fileID: 1955542788}
   - component: {fileID: 1955542790}
-  - component: {fileID: 1955542787}
   - component: {fileID: 1955542786}
+  - component: {fileID: 1955542787}
   m_Layer: 5
   m_Name: Play
   m_TagString: Untagged
@@ -6186,24 +6210,17 @@ MonoBehaviour:
   m_ChildForceExpandHeight: 1
   m_ChildControlWidth: 0
   m_ChildControlHeight: 0
---- !u!95 &1955542787
-Animator:
-  serializedVersion: 3
+--- !u!225 &1955542787
+CanvasGroup:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 95673014699908252, guid: 76fc48b2bea5efe46b1d48e03ada9d94,
-    type: 2}
+  m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1955542784}
   m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: c7883ed02f24c4739beebb676740fb7a, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!114 &1955542788
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6257,7 +6274,7 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
+  m_Transition: 3
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
