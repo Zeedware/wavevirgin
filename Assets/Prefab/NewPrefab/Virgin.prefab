@@ -2735,6 +2735,8 @@ MonoBehaviour:
   isDraggedBegin: 0
   mouseBeginPosition: {x: 0, y: 0, z: 0}
   mousePosition: {x: 0, y: 0, z: 0}
+  virginCollider: {fileID: 61000012539961718}
+  isActive: 0
   forceAmount: 30
 --- !u!114 &114000013755947730
 MonoBehaviour:

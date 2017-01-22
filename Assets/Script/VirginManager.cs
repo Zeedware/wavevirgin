@@ -70,9 +70,9 @@ public class VirginManager : MonoBehaviour {
 
 	public IEnumerator DoEarthquake() {
 		earthquakeCooldown = 2000;
-		Debug.Log("A");
+
 		yield return new WaitForSeconds(5);
-		Debug.Log("B");
+
 		EarthquakeEnd();
 		earthquakeCooldown = 15;
 	}

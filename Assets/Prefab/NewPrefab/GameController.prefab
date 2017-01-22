@@ -24,6 +24,7 @@ GameObject:
   - 114: {fileID: 114000012230772652}
   - 114: {fileID: 114000010465413694}
   - 114: {fileID: 114000010959117206}
+  - 95: {fileID: 95000010240500292}
   m_Layer: 0
   m_Name: GameController
   m_TagString: MainCamera
@@ -116,6 +117,23 @@ AudioListener:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000012761237372}
   m_Enabled: 1
+--- !u!95 &95000010240500292
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000012761237372}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 070276787927b462ba929a2045158938, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!114 &114000010052222320
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -188,3 +206,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   phoneCameraController: {fileID: 0}
+  cameraAnimator: {fileID: 95000010240500292}
