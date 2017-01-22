@@ -333,6 +333,46 @@ Prefab:
       propertyPath: m_RootOrder
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 1000013421945370, guid: 0b6778b4f946e43c8b24246c58d62e1d, type: 2}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 1000012904676956, guid: 0b6778b4f946e43c8b24246c58d62e1d, type: 2}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 1000013953246466, guid: 0b6778b4f946e43c8b24246c58d62e1d, type: 2}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 1000010356726200, guid: 0b6778b4f946e43c8b24246c58d62e1d, type: 2}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 1000013688432814, guid: 0b6778b4f946e43c8b24246c58d62e1d, type: 2}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 1000012268144690, guid: 0b6778b4f946e43c8b24246c58d62e1d, type: 2}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 1000010806059836, guid: 0b6778b4f946e43c8b24246c58d62e1d, type: 2}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 1000011285206572, guid: 0b6778b4f946e43c8b24246c58d62e1d, type: 2}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 1000013960476142, guid: 0b6778b4f946e43c8b24246c58d62e1d, type: 2}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 1000013674572262, guid: 0b6778b4f946e43c8b24246c58d62e1d, type: 2}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0b6778b4f946e43c8b24246c58d62e1d, type: 2}
   m_IsPrefabParent: 0
@@ -385,6 +425,16 @@ Prefab:
       propertyPath: phoneCameraController
       value: 
       objectReference: {fileID: 1920524665}
+    - target: {fileID: 20000010653765430, guid: 8c1acaeac63304cdc9c343ee3ab32fd5,
+        type: 2}
+      propertyPath: m_CullingMask.m_Bits
+      value: 4294966239
+      objectReference: {fileID: 0}
+    - target: {fileID: 20000010653765430, guid: 8c1acaeac63304cdc9c343ee3ab32fd5,
+        type: 2}
+      propertyPath: m_ClearFlags
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8c1acaeac63304cdc9c343ee3ab32fd5, type: 2}
   m_IsPrefabParent: 0
@@ -410,11 +460,22 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!20 &1214011417 stripped
-Camera:
-  m_PrefabParentObject: {fileID: 20000010653765430, guid: 8c1acaeac63304cdc9c343ee3ab32fd5,
-    type: 2}
-  m_PrefabInternal: {fileID: 976262059}
+--- !u!114 &1214011413
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1214011411}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7fc6bde01469c7b4badee5362f191d96, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  downsample: 1
+  blurSize: 5
+  blurIterations: 1
+  blurType: 0
+  blurShader: {fileID: 4800000, guid: f9d5fa183cd6b45eeb1491f74863cd91, type: 3}
 --- !u!114 &1571534349 stripped
 MonoBehaviour:
   m_PrefabParentObject: {fileID: 114000014043062066, guid: 0b6778b4f946e43c8b24246c58d62e1d,
@@ -460,26 +521,16 @@ Prefab:
       propertyPath: m_RootOrder
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 114000011021872092, guid: 76fc48b2bea5efe46b1d48e03ada9d94,
+        type: 2}
+      propertyPath: blur
+      value: 
+      objectReference: {fileID: 1214011413}
     - target: {fileID: 114000011808413860, guid: 76fc48b2bea5efe46b1d48e03ada9d94,
         type: 2}
       propertyPath: virginManager
       value: 
       objectReference: {fileID: 1571534349}
-    - target: {fileID: 223000010970958910, guid: 76fc48b2bea5efe46b1d48e03ada9d94,
-        type: 2}
-      propertyPath: m_Camera
-      value: 
-      objectReference: {fileID: 1214011417}
-    - target: {fileID: 223000010237731360, guid: 76fc48b2bea5efe46b1d48e03ada9d94,
-        type: 2}
-      propertyPath: m_Camera
-      value: 
-      objectReference: {fileID: 1214011417}
-    - target: {fileID: 223000013205560176, guid: 76fc48b2bea5efe46b1d48e03ada9d94,
-        type: 2}
-      propertyPath: m_Camera
-      value: 
-      objectReference: {fileID: 1214011417}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 76fc48b2bea5efe46b1d48e03ada9d94, type: 2}
   m_IsPrefabParent: 0

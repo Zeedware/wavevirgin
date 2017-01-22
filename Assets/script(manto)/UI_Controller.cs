@@ -16,6 +16,8 @@ public class UI_Controller : MonoBehaviour {
 	public SatisifactionController satisfaction;
 	public GameObject mainMenu, gamePlay, gameOver;
 	public Button playButton, quitButton, playAgainButton, mainMenuButton;
+	public UnityStandardAssets.ImageEffects.BlurOptimized blur;
+
 
 	void Start()
 	{
@@ -52,6 +54,8 @@ public class UI_Controller : MonoBehaviour {
 
 	public void GotoView (VIEW_STATE state)
 	{
+		SetBlur (true);
+
 		switch (state) {
 		case VIEW_STATE.MAIN_MENU:
 			mainMenu.SetActive (true);
@@ -62,6 +66,7 @@ public class UI_Controller : MonoBehaviour {
 			mainMenu.SetActive (false);
 			gamePlay.SetActive (true);
 			gameOver.SetActive (false);
+			SetBlur (false);
 			break;
 		case VIEW_STATE.GAMEOVER:
 			mainMenu.SetActive (false);
@@ -70,6 +75,26 @@ public class UI_Controller : MonoBehaviour {
 			break;
 			
 		}
+	}
+
+	void SetBlur(bool active)
+	{
+		if(!active)
+			StartCoroutine (Unbluring (active ? 1 : -1));
+		else
+			blur.enabled = active;
+	}
+
+	IEnumerator Unbluring(int value)
+	{
+		while (blur.blurSize <= 5 && blur.blurSize >= 0) {
+			blur.blurSize += Time.deltaTime * (float)value*10f;
+			yield return new WaitForSeconds (0.1f);
+		}
+
+		blur.blurSize = 0;
+		blur.enabled = false;
+
 	}
 
 }
