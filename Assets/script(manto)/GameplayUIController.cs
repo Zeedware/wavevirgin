@@ -4,13 +4,16 @@ using UnityEngine.UI;
 
 public class GameplayUIController : MonoBehaviour {
 
-	public Text scoreText, resultScoreText;
+	public int TOTAL_SNACHED_VIRGIN = 0;
+	public Text scoreText, resultScoreText, totalSnachedText;
 	public int currentScore;
 	public GameObject particleContainer;
 	public Button skill_earthShake;
 	public ParticlePool particlePool;
 	public VirginManager virginManager;
-
+	public Image cooldownMask;
+	public float cooldownTime = 10f;
+	bool cooldownSkill;
 	void OnEnable()
 	{
 		GameEvent.onAddScoreE += GameEvent_onAddScoreE;
@@ -36,8 +39,11 @@ public class GameplayUIController : MonoBehaviour {
 	}
 	public void GameEvent_onEarthShakeE ()
 	{
-		Debug.Log ("SKILL EARTH SHAKE");
-		virginManager.EarthquakeBegin (PhoneCameraController.Instance.virginPhoto [0].virginController.style);
+		if (!cooldownSkill) {
+			particlePool.PlayRubbleParticle ();
+			virginManager.EarthquakeBegin (PhoneCameraController.Instance.virginPhoto [1].virginController.style);
+			cooldownSkill = true;
+		}
 	}
 
 	void ActivateSkill_1()
@@ -48,12 +54,17 @@ public class GameplayUIController : MonoBehaviour {
 	void GameEvent_onAddScoreE (int score)
 	{
 		currentScore += score;
+		TOTAL_SNACHED_VIRGIN += score;
 		scoreText.text = currentScore.ToString ();
 		resultScoreText.text = currentScore.ToString ();
+		totalSnachedText.text = TOTAL_SNACHED_VIRGIN.ToString ();
 	}
 
 	void Update()
 	{
+		if (cooldownSkill) {
+			CheckCoooldown ();				
+		}
 		if (Input.GetKeyDown (KeyCode.A)) {
 			GameEvent.OnTouchPeople (true);
 			GameEvent_onTouchPeopleE (true);
@@ -62,6 +73,17 @@ public class GameplayUIController : MonoBehaviour {
 		if (Input.GetKeyDown (KeyCode.Z)) {
 			GameEvent.OnTouchPeople (false);
 			GameEvent_onTouchPeopleE (false);
+		}
+	}
+
+	void CheckCoooldown()
+	{
+		cooldownMask.gameObject.SetActive (true);
+		cooldownMask.fillAmount -= Time.deltaTime/cooldownTime;
+		if (cooldownMask.fillAmount <= 0) {
+			cooldownSkill = false;
+			cooldownMask.gameObject.SetActive (false);
+			cooldownMask.fillAmount = 1f;
 		}
 	}
 

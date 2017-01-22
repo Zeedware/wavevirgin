@@ -8,6 +8,7 @@ public class ParticlePool : MonoBehaviour {
 	public Transform particleParent;
 	public List<ParticleSystem> particleFalseList;
 	public List<ParticleSystem> particleTrueList;
+	public ParticleSystem rubbleParticle;
 
 	public ParticleSystem GetAvailableParticle(bool isRight)
 	{
@@ -44,5 +45,15 @@ public class ParticlePool : MonoBehaviour {
 		ParticleSystem newParticle = particle.GetComponent<ParticleSystem> ();
 		particleFalseList.Add (newParticle);
 		return newParticle;
+	}
+
+	public void PlayRubbleParticle()
+	{
+		if (!rubbleParticle.isPlaying) {
+			rubbleParticle.Stop ();
+		}
+
+		rubbleParticle.Play ();
+			
 	}
 }
