@@ -7,8 +7,12 @@ public class PhoneCameraController : MonoBehaviour {
 
 	public static PhoneCameraController Instance {
 		get {
-			return instance;
-		}
+            if (instance == null) {
+                instance = FindObjectOfType<PhoneCameraController>();
+            
+            }
+            return instance;
+        }
 	}
 
 	private void Awake() {

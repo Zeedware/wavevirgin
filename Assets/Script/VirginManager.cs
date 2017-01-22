@@ -22,7 +22,7 @@ public class VirginManager : MonoBehaviour {
 	public bool isEarthquake;
 	public float earthquakeCooldown = -1;
 
-	public GameMode gameMode = GameMode.Normal;
+	public GameMode gameMode = GameMode.Girl;
 
 	private void Awake() {
 		instance = this;
@@ -32,8 +32,9 @@ public class VirginManager : MonoBehaviour {
 		for (int i = 0; i < virginCount; ++i) {
 			virginController[i] = ((GameObject) GameObject.Instantiate(prefab, virginManagerTransform)).GetComponent<VirginController>();
 			virginController[i].Init(this);
-		}
-	}
+        }
+        ChangeGameMode(GameMode.Girl);
+    }
 
 	private void Update() {
 		if (Input.GetKeyDown(KeyCode.P)) {
