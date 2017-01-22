@@ -389,40 +389,7 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8c1acaeac63304cdc9c343ee3ab32fd5, type: 2}
   m_IsPrefabParent: 0
---- !u!1 &1214011411 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1000012761237372, guid: 8c1acaeac63304cdc9c343ee3ab32fd5,
-    type: 2}
-  m_PrefabInternal: {fileID: 976262059}
---- !u!95 &1214011412
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1214011411}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 070276787927b462ba929a2045158938, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
---- !u!20 &1214011417 stripped
-Camera:
-  m_PrefabParentObject: {fileID: 20000010653765430, guid: 8c1acaeac63304cdc9c343ee3ab32fd5,
-    type: 2}
-  m_PrefabInternal: {fileID: 976262059}
---- !u!114 &1571534349 stripped
-MonoBehaviour:
-  m_PrefabParentObject: {fileID: 114000014043062066, guid: 0b6778b4f946e43c8b24246c58d62e1d,
-    type: 2}
-  m_PrefabInternal: {fileID: 861878006}
-  m_Script: {fileID: 11500000, guid: 0a951c758a8d141e9894fe610c7d4d34, type: 3}
---- !u!1001 &1853231101
+--- !u!1001 &1031034766
 Prefab:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -461,11 +428,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 5
       objectReference: {fileID: 0}
-    - target: {fileID: 114000011808413860, guid: 76fc48b2bea5efe46b1d48e03ada9d94,
+    - target: {fileID: 223000013205560176, guid: 76fc48b2bea5efe46b1d48e03ada9d94,
         type: 2}
-      propertyPath: virginManager
+      propertyPath: m_Camera
       value: 
-      objectReference: {fileID: 1571534349}
+      objectReference: {fileID: 1214011417}
     - target: {fileID: 223000010970958910, guid: 76fc48b2bea5efe46b1d48e03ada9d94,
         type: 2}
       propertyPath: m_Camera
@@ -476,40 +443,47 @@ Prefab:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 1214011417}
-    - target: {fileID: 223000013205560176, guid: 76fc48b2bea5efe46b1d48e03ada9d94,
+    - target: {fileID: 114000011808413860, guid: 76fc48b2bea5efe46b1d48e03ada9d94,
         type: 2}
-      propertyPath: m_Camera
+      propertyPath: virginManager
       value: 
-      objectReference: {fileID: 1214011417}
-    - target: {fileID: 114000013440470686, guid: 76fc48b2bea5efe46b1d48e03ada9d94,
-        type: 2}
-      propertyPath: m_Text
-      value: 'Virginity
-
-        You''ve taken'
-      objectReference: {fileID: 0}
-    - target: {fileID: 114000011024320998, guid: 76fc48b2bea5efe46b1d48e03ada9d94,
-        type: 2}
-      propertyPath: m_Text
-      value: "virginity all this time\nKeep searching \nuntil there are no virgin
-        in this world"
-      objectReference: {fileID: 0}
-    - target: {fileID: 114000013794919946, guid: 76fc48b2bea5efe46b1d48e03ada9d94,
-        type: 2}
-      propertyPath: m_Text
-      value: 'Awesome !!
-
-        You''ve snatched'
-      objectReference: {fileID: 0}
-    - target: {fileID: 114000011026224792, guid: 76fc48b2bea5efe46b1d48e03ada9d94,
-        type: 2}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: 7f33f79f04d9f4a7c85debe9863e65a4,
-        type: 3}
+      objectReference: {fileID: 1571534349}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 76fc48b2bea5efe46b1d48e03ada9d94, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &1214011411 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1000012761237372, guid: 8c1acaeac63304cdc9c343ee3ab32fd5,
+    type: 2}
+  m_PrefabInternal: {fileID: 976262059}
+--- !u!95 &1214011412
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1214011411}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 070276787927b462ba929a2045158938, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+--- !u!20 &1214011417 stripped
+Camera:
+  m_PrefabParentObject: {fileID: 20000010653765430, guid: 8c1acaeac63304cdc9c343ee3ab32fd5,
+    type: 2}
+  m_PrefabInternal: {fileID: 976262059}
+--- !u!114 &1571534349 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114000014043062066, guid: 0b6778b4f946e43c8b24246c58d62e1d,
+    type: 2}
+  m_PrefabInternal: {fileID: 861878006}
+  m_Script: {fileID: 11500000, guid: 0a951c758a8d141e9894fe610c7d4d34, type: 3}
 --- !u!114 &1920524665 stripped
 MonoBehaviour:
   m_PrefabParentObject: {fileID: 114000012760950440, guid: 9f97422e897da4cf1aeb5f1bd5fbfc55,
