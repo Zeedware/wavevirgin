@@ -87,30 +87,23 @@ public class GameplayUIController : MonoBehaviour {
 		}
 	}
 
-	void GameEvent_onTouchPeopleE (bool isRight)
-	{
+	void GameEvent_onTouchPeopleE (bool isRight) {
 		if(isRight)
 			GameEvent.OnAddScore (1);
 		if (gameObject.activeInHierarchy) {
 			StartCoroutine (PlayParticle (isRight));
-			Debug.Log ("play particle");
 		}
-
-
-
 	}
-	IEnumerator PlayParticle(bool isRight)
-	{
+
+	IEnumerator PlayParticle(bool isRight) {
 		Vector3 particlePosition = Camera.main.ScreenToWorldPoint (Input.mousePosition);
 		ParticleSystem particle = particlePool.GetAvailableParticle (isRight);
 		particle.gameObject.transform.position = new Vector3 (particlePosition.x, particlePosition.y, particleContainer.transform.position.z);
-		particle.gameObject.SetActive (true);
-			particle.Play ();
-			yield return new WaitForSeconds (1);
-			particle.Stop ();
-			particle.gameObject.SetActive (false);
+		particle.gameObject.SetActive(true);
+			particle.Play();
+			yield return new WaitForSeconds(1);
+			particle.Stop();
+			particle.gameObject.SetActive(false);
 		yield return null;
-
-
 	}
 }
