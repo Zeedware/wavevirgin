@@ -4,11 +4,11 @@ using System.Collections;
 [System.Serializable]
 public struct Style {
 
-	public const int maxStyle = 21;
+	public const int maxStyle = 22;
 
 	public int styleType;
     public int styleClass;
-    public enum classType { cewek=0, pria=1, om=2, tante=3 };
+    public enum classType { cewek=0, pria=1, om=2, tante=3, goat=4 };
 
     public GameObject[] styleGameObject;
 
@@ -62,15 +62,33 @@ public struct Style {
         else if (input <= 17)
         {
             styleClass = 2;
-        }
-        else if (input <= maxStyle)
-        {
-            styleClass = 3;
-        }
+		}
+		else if (input <= 21)
+		{
+			styleClass = 3;
+		}
+		else if (input <= maxStyle)
+		{
+			styleClass = 4;
+		}
     }
 
+	private void SetStyleType() {
+		if (VirginManager.Instance.gameMode == GameMode.Normal) {
+			styleType = Random.Range(0, 21);
+		} else if (VirginManager.Instance.gameMode == GameMode.Girl) {
+			styleType = Random.Range(0, 10);
+		} else if (VirginManager.Instance.gameMode == GameMode.GirlBoy) {
+			styleType = Random.Range(0, 15);
+		} else if (VirginManager.Instance.gameMode == GameMode.GirlBoyOldies) {
+			styleType = Random.Range(0, 21);
+		} else if (VirginManager.Instance.gameMode == GameMode.GirlBoyOldiesGoat) {
+			styleType = Random.Range(0, 22);
+		} 
+	}
+
 	public void RandomizeStyle() {
-		styleType = Random.Range(0, maxStyle);
+		SetStyleType();
 
         setStyleClass(styleType);
 
@@ -84,7 +102,12 @@ public struct Style {
 	}
 
 	public void RandomizePhoto() {
-		styleType = Random.Range(0, 14);
+		if (VirginManager.Instance.gameMode == GameMode.Girl) {
+			styleType = Random.Range(0, 10);
+
+		} else {
+			styleType = Random.Range(0, 14);
+		}
 
         setStyleClass(styleType);
 

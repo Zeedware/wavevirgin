@@ -464,7 +464,9 @@ Prefab:
       propertyPath: virginManager
       value: 
       objectReference: {fileID: 1304163588}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 95000011863720858, guid: 76fc48b2bea5efe46b1d48e03ada9d94, type: 2}
+    - {fileID: 95000012388545166, guid: 76fc48b2bea5efe46b1d48e03ada9d94, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 76fc48b2bea5efe46b1d48e03ada9d94, type: 2}
   m_IsPrefabParent: 0
 --- !u!114 &1920524665 stripped

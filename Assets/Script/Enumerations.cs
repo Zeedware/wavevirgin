@@ -14,3 +14,13 @@ public enum DressStyle {
 
 	Count = 4,
 }
+
+public enum GameMode {
+	Normal = 0,
+	Girl = 1,
+	GirlBoy = 2,
+	GirlBoyOldies = 3,
+	GirlBoyOldiesGoat = 4,
+
+	Count = 5
+}

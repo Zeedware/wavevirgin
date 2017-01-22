@@ -241,8 +241,12 @@ public class VirginController : MonoBehaviour {
 		}
 
 		virginRigidbody.velocity = oldVelocity;
-		virginAnimator.SetTrigger("Walk");
+		virginAnimator.SetTrigger ("Walk");
 		virginCollider.enabled = true;
 		virginRigidbody.isKinematic = false;
+	}
+
+	public void ChangeGameMode() {
+		style.RandomizeStyle();
 	}
 }
