@@ -501,6 +501,12 @@ Prefab:
 
         You''ve snatched'
       objectReference: {fileID: 0}
+    - target: {fileID: 114000011026224792, guid: 76fc48b2bea5efe46b1d48e03ada9d94,
+        type: 2}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 7f33f79f04d9f4a7c85debe9863e65a4,
+        type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 76fc48b2bea5efe46b1d48e03ada9d94, type: 2}
   m_IsPrefabParent: 0
