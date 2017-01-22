@@ -31,6 +31,7 @@ public class VirginController : MonoBehaviour {
 	private Vector3 oldVelocity;
 
 	public float forceAmount;
+	bool isEdgeLeft;
 
 	public void Init(VirginManager virginManager) {
 		this.virginManager = virginManager;
@@ -59,7 +60,7 @@ public class VirginController : MonoBehaviour {
 	}
 
 	public void SpawnInitial() {
-		bool isEdgeLeft = Random.Range(0, 2) == 0;
+		isEdgeLeft = Random.Range(0, 2) == 0;
 		styleTransform.localScale = new Vector3((isEdgeLeft ? -1 : 1), 1, 1);
 		virginTransform.localEulerAngles = Vector3.zero;
 
@@ -119,6 +120,8 @@ public class VirginController : MonoBehaviour {
 		if (!isPhoto && EventSystem.current.IsPointerOverGameObject()) {
 			isDragged = false;
 			Vector3 newMousePosition = Input.mousePosition - mousePosition;
+			if (newMousePosition.x == 0)
+				newMousePosition.x = (isEdgeLeft ? 10f : -10f);
 			virginRigidbody.AddForce (new Vector2 (newMousePosition.x * forceAmount, newMousePosition.y*forceAmount), ForceMode2D.Force);
 
             if (style.styleClass == 0)

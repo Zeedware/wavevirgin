@@ -32,6 +32,7 @@ public class GameplayUIController : MonoBehaviour {
 	{
 		currentScore = 0;
 		GameEvent_onAddScoreE (0);
+//		virginManager.
 	}
 	public void GameEvent_onEarthShakeE ()
 	{
