@@ -48,9 +48,9 @@ public class StoryManager : MonoBehaviour {
         changeText("dan kekuatan untuk memanggil gempa di ketika dia berdoa");
         AudioManagerStory.Instance.playStory(8);
         yield return new WaitForSeconds(5);
-        changeText("Mulailah perjalanan Joni mencari anak dara di tengah gelombang manusia jakarta");
+        changeText("Mulailah perjalanan Joni mencari anak dara di tengah <color=#ff0000ff>gelombang</color> manusia jakarta");
         AudioManagerStory.Instance.playStory(9);
-        yield return new WaitForSeconds(10);
+        yield return new WaitForSeconds(9);
         Application.LoadLevel(1);
     }
 

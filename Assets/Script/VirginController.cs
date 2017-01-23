@@ -144,7 +144,7 @@ public class VirginController : MonoBehaviour {
 
 	public void OnEndDrag(BaseEventData data) {
 		if (!isPhoto && EventSystem.current.IsPointerOverGameObject() && isDragged) {
-			isActive = false;
+			
 			isDragged = false;
 			Vector3 newMousePosition = Input.mousePosition - mousePosition;
 			virginRigidbody.AddForce (new Vector2 (newMousePosition.x * forceAmount, newMousePosition.y*forceAmount), ForceMode2D.Force);
@@ -152,7 +152,7 @@ public class VirginController : MonoBehaviour {
 	}
 
 	public void OnPointerClick(BaseEventData data) {
-		if (!isPhoto && EventSystem.current.IsPointerOverGameObject() && isActive) {
+		if (!isPhoto && EventSystem.current.IsPointerOverGameObject()) {
 			if (!isDragged) {
 				if (GameController.Instance.IsRight(style)) {
 					OnCorrect();
@@ -219,11 +219,14 @@ public class VirginController : MonoBehaviour {
 	}
 
 	public void TriggerEarthquake(Style style) {
-		if (!isActive) {
-			return;
-		}
 
-		if (style == this.style) {
+        if (!isActive)
+        {
+            return;
+
+        }
+
+        if (style == this.style) {
 			virginCollider.enabled = true;
 			virginRigidbody.isKinematic = false;
 			virginAnimator.SetTrigger("Survive");
@@ -236,12 +239,19 @@ public class VirginController : MonoBehaviour {
 	}
 
 	public void TriggerWalk() {
-		if (!isActive) {
-			return;
-		}
+        if (!isActive)
+        {
+            return;
 
-		virginRigidbody.velocity = oldVelocity;
-		virginAnimator.SetTrigger ("Walk");
+        }
+
+        bool isEdgeLeft = Random.Range(0, 2) == 0;
+        styleTransform.localScale = new Vector3((isEdgeLeft ? -1 : 1), 1, 1);
+        virginTransform.localEulerAngles = Vector3.zero;
+
+        virginRigidbody.velocity = new Vector2(Random.Range(minSpeed, maxSpeed) * (isEdgeLeft ? 1 : -1), 0);
+
+        virginAnimator.SetTrigger ("Walk");
 		virginCollider.enabled = true;
 		virginRigidbody.isKinematic = false;
 	}
